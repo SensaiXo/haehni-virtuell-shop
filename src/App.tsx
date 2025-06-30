@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Leistungen from "./pages/Leistungen";
 import UeberUns from "./pages/UeberUns";
+import OnlineBuchung from "./pages/OnlineBuchung";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,8 +22,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/leistungen" element={<Leistungen />} />
           <Route path="/ueber-uns" element={<UeberUns />} />
+          <Route path="/buchung" element={<OnlineBuchung />} />
           {/* Placeholder routes - will be implemented as needed */}
-          <Route path="/buchung" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Online-Buchung - Coming Soon</h1></div>} />
           <Route path="/kontakt" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Kontakt - Coming Soon</h1></div>} />
           <Route path="/blog" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Blog - Coming Soon</h1></div>} />
           <Route path="/datenschutz" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Datenschutz - Coming Soon</h1></div>} />

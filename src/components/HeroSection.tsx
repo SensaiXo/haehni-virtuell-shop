@@ -23,10 +23,10 @@ const HeroSection = () => {
               
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
-                  <Link to="/buchung" className="flex items-center">
+                  <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     Kostenloses Erstgespräch
                     <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
+                  </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3 border-blue-200 hover:bg-blue-50">
                   <Link to="/leistungen">

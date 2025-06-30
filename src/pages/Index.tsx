@@ -66,9 +66,14 @@ const Index = () => {
             Lassen Sie uns besprechen, wie wir Ihr Backoffice optimieren können.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+            <a
+              href="https://calendly.com/swissfinanceai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
+            >
               Jetzt Termin vereinbaren
-            </button>
+            </a>
             <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
               Mehr erfahren
             </button>

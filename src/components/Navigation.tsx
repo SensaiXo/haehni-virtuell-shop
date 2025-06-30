@@ -62,7 +62,9 @@ const Navigation = () => {
               <span>info@bdlh.ch</span>
             </div>
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link to="/buchung">Erstgespräch buchen</Link>
+              <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
+                Erstgespräch buchen
+              </a>
             </Button>
           </div>
 
@@ -101,9 +103,9 @@ const Navigation = () => {
                   <span>info@bdlh.ch</span>
                 </div>
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-                  <Link to="/buchung" onClick={() => setIsOpen(false)}>
+                  <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     Erstgespräch buchen
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </div>
