@@ -29,6 +29,7 @@ const Navigation = () => {
       dropdown: [
         { name: t('nav.about_us'), path: '/ueber-uns' },
         { name: t('nav.contact_info'), path: '/kontakt' },
+        { name: t('nav.faq'), path: '/faq' },
       ]
     },
     { name: t('nav.blog'), path: '/blog' },
