@@ -12,11 +12,13 @@ const translations = {
   de: {
     // Navigation
     'nav.home': 'Startseite',
-    'nav.services': 'Leistungen',
-    'nav.products': 'Pakete',
-    'nav.booking': 'Online-Buchung',
-    'nav.about': 'Über uns',
-    'nav.contact': 'Kontakt',
+    'nav.services_packages': 'Leistungen & Pakete',
+    'nav.services_overview': 'Leistungsübersicht',
+    'nav.pricing_packages': 'Preis-Pakete',
+    'nav.book_now': 'Jetzt buchen',
+    'nav.about_contact': 'Über uns & Kontakt',
+    'nav.about_us': 'Über uns',
+    'nav.contact_info': 'Kontaktinformationen',
     'nav.blog': 'Blog',
     'cta.booking': 'Erstgespräch buchen',
     
@@ -58,11 +60,13 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
-    'nav.services': 'Services',
-    'nav.products': 'Packages',
-    'nav.booking': 'Online Booking',
-    'nav.about': 'About Us',
-    'nav.contact': 'Contact',
+    'nav.services_packages': 'Services & Packages',
+    'nav.services_overview': 'Services Overview',
+    'nav.pricing_packages': 'Pricing Packages',
+    'nav.book_now': 'Book Now',
+    'nav.about_contact': 'About & Contact',
+    'nav.about_us': 'About Us',
+    'nav.contact_info': 'Contact Info',
     'nav.blog': 'Blog',
     'cta.booking': 'Book Consultation',
     
