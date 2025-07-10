@@ -34,6 +34,26 @@ const translations = {
     'products.custom.title': 'Etwas Individuelles benötigt?',
     'products.custom.subtitle': 'Massgeschneiderte virtuelle Lösungen verfügbar',
     'products.faq.title': 'Häufig gestellte Fragen',
+    
+    // Contact page
+    'contact.title': 'Laura Hähni Office Services kontaktieren',
+    'contact.subtitle': 'Ich freue mich zu hören, wie ich Ihr Unternehmen unterstützen kann. Ob Sie sich für ein Servicepaket interessieren, ein individuelles Angebot benötigen oder einfach eine Frage haben - kontaktieren Sie mich gerne.',
+    'contact.info.title': 'Kontaktinformationen',
+    'contact.info.email': 'E-Mail',
+    'contact.info.phone': 'Telefon / WhatsApp',
+    'contact.info.location': 'Standort',
+    'contact.info.location.value': 'Ansässig in Frauenfeld, Schweiz (Nur Remote-Services)',
+    'contact.hours.title': 'Geschäftszeiten',
+    'contact.hours.weekdays': 'Montag bis Freitag: 08:00 – 12:00 und 14:00 – 18:00',
+    'contact.hours.note': 'Support ausserhalb dieser Zeiten kann nach vorheriger Absprache und gegen Aufpreis verfügbar sein.',
+    'contact.form.title': 'Kontaktformular',
+    'contact.form.name': 'Vollständiger Name',
+    'contact.form.email': 'E-Mail-Adresse',
+    'contact.form.subject': 'Betreff',
+    'contact.form.message': 'Nachricht',
+    'contact.form.send': 'Nachricht senden',
+    'contact.privacy.title': 'Datenschutzerklärung',
+    'contact.privacy.text': 'Ihre persönlichen Daten werden sicher und in Übereinstimmung mit den Schweizer Datenschutzgesetzen behandelt. Ich teile keine Daten mit Dritten und verwende Ihre Angaben nur, um auf Ihre Anfrage zu antworten.',
   },
   en: {
     // Navigation
@@ -60,13 +80,33 @@ const translations = {
     'products.custom.title': 'Need Something Custom?',
     'products.custom.subtitle': 'Tailored Virtual Solutions Available',
     'products.faq.title': 'Frequently Asked Questions',
+    
+    // Contact page
+    'contact.title': 'Contact Laura Hähni Office Services',
+    'contact.subtitle': 'I\'d love to hear how I can support your business. Whether you\'re interested in a service package, need a custom quote, or simply have a question — feel free to get in touch.',
+    'contact.info.title': 'Contact Information',
+    'contact.info.email': 'Email',
+    'contact.info.phone': 'Phone / WhatsApp',
+    'contact.info.location': 'Location',
+    'contact.info.location.value': 'Based in Frauenfeld, Switzerland (Remote-only services)',
+    'contact.hours.title': 'Business Hours',
+    'contact.hours.weekdays': 'Monday to Friday: 08:00 – 12:00 and 14:00 – 18:00',
+    'contact.hours.note': 'Support outside these hours may be available with prior agreement and surcharge.',
+    'contact.form.title': 'Contact Form',
+    'contact.form.name': 'Full Name',
+    'contact.form.email': 'Email Address',
+    'contact.form.subject': 'Subject',
+    'contact.form.message': 'Message',
+    'contact.form.send': 'Send Message',
+    'contact.privacy.title': 'Privacy Statement',
+    'contact.privacy.text': 'Your personal information is handled securely and in accordance with Swiss data protection laws. I do not share data with third parties and will only use your details to respond to your inquiry.',
   }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('de');
+  const [language, setLanguage] = useState<Language>('en');
 
   useEffect(() => {
     const saved = localStorage.getItem('language') as Language;
