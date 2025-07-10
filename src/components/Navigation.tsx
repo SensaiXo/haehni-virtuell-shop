@@ -3,18 +3,22 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navItems = [
-    { name: 'Startseite', path: '/' },
-    { name: 'Leistungen', path: '/leistungen' },
-    { name: 'Online-Buchung', path: '/buchung' },
-    { name: 'Über uns', path: '/ueber-uns' },
-    { name: 'Kontakt', path: '/kontakt' },
-    { name: 'Blog', path: '/blog' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.services'), path: '/leistungen' },
+    { name: t('nav.products'), path: '/products' },
+    { name: t('nav.booking'), path: '/buchung' },
+    { name: t('nav.about'), path: '/ueber-uns' },
+    { name: t('nav.contact'), path: '/kontakt' },
+    { name: t('nav.blog'), path: '/blog' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -55,15 +59,16 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Contact Info & CTA */}
+          {/* Contact Info, Language Toggle & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Mail className="w-4 h-4" />
               <span>info@bdlh.ch</span>
             </div>
+            <LanguageToggle />
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
-                Erstgespräch buchen
+                {t('cta.booking')}
               </a>
             </Button>
           </div>
@@ -98,13 +103,16 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-3 py-2 border-t mt-2">
-                <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                  <Mail className="w-4 h-4" />
-                  <span>info@bdlh.ch</span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                    <Mail className="w-4 h-4" />
+                    <span>info@bdlh.ch</span>
+                  </div>
+                  <LanguageToggle />
                 </div>
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                   <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-                    Erstgespräch buchen
+                    {t('cta.booking')}
                   </a>
                 </Button>
               </div>
