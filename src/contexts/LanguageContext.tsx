@@ -182,6 +182,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const saved = localStorage.getItem('language') as Language;
     if (saved && (saved === 'de' || saved === 'en')) {
       setLanguage(saved);
+    } else {
+      // Always default to English if no saved language
+      setLanguage('en');
+      localStorage.setItem('language', 'en');
     }
   }, []);
 
