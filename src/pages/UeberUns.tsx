@@ -295,7 +295,7 @@ const UeberUns = () => {
                   <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
                     <Link to="/buchung">Schedule Initial Consultation</Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                  <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent">
                     <Link to="/kontakt">
                       <Mail className="w-4 h-4 mr-2" />
                       Make Contact
