@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,8 +9,18 @@ import LanguageToggle from './LanguageToggle';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const { t } = useLanguage();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { name: t('nav.home'), path: '/' },
@@ -47,7 +57,9 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className={`shadow-lg sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-sm' : 'bg-white'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -65,14 +77,14 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-2 xl:space-x-4">
               {navItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.dropdown ? (
                     <div className="relative">
                       <button
                         onClick={() => handleDropdownToggle(item.name)}
-                        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center space-x-1 ${
+                        className={`px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-colors duration-200 flex items-center space-x-1 whitespace-nowrap ${
                           isDropdownActive(item.dropdown)
                             ? 'bg-blue-100 text-blue-700'
                             : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
@@ -103,7 +115,7 @@ const Navigation = () => {
                   ) : (
                     <Link
                       to={item.path}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                      className={`px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
                         isActive(item.path)
                           ? 'bg-blue-100 text-blue-700'
                           : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
@@ -118,13 +130,13 @@ const Navigation = () => {
           </div>
 
           {/* Contact Info, Language Toggle & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+            <div className="flex items-center space-x-2 text-xs xl:text-sm text-gray-600">
               <Mail className="w-4 h-4" />
-              <span>info@bdlh.ch</span>
+              <span className="hidden xl:inline">info@bdlh.ch</span>
             </div>
             <LanguageToggle />
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-xs xl:text-sm px-3 xl:px-4">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
                 {t('cta.booking')}
               </a>
