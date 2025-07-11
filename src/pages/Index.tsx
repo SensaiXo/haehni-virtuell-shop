@@ -1,24 +1,47 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Layout from '@/components/Layout';
 import HeroSection from '@/components/HeroSection';
 import ServicesOverview from '@/components/ServicesOverview';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
+  const { t } = useLanguage();
+  const trustSectionRef = useRef<HTMLElement>(null);
+  const ctaSectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (trustSectionRef.current) observer.observe(trustSectionRef.current);
+    if (ctaSectionRef.current) observer.observe(ctaSectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Layout>
       <HeroSection />
       <ServicesOverview />
       
       {/* Trust Section */}
-      <section className="py-20 bg-gray-50">
+      <section ref={trustSectionRef} className="py-20 bg-gray-50 opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Warum Bürodienstleistungen Hähni?
+              {t('home.trust.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Damit Sie sich auf Ihr Kerngeschäft konzentrieren können
+              {t('home.trust.subtitle')}
             </p>
           </div>
           
@@ -27,9 +50,9 @@ const Index = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-blue-600">10+</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Jahre Erfahrung</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.experience')}</h3>
               <p className="text-gray-600">
-                Langjährige Expertise in der kaufmännischen Sachbearbeitung
+                {t('home.trust.experience_desc')}
               </p>
             </div>
             
@@ -37,9 +60,9 @@ const Index = () => {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-600">100%</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Remote</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.remote')}</h3>
               <p className="text-gray-600">
-                Vollständig digitale Abwicklung - keine Vor-Ort-Termine nötig
+                {t('home.trust.remote_desc')}
               </p>
             </div>
             
@@ -47,9 +70,9 @@ const Index = () => {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-purple-600">24/7</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Flexibel</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.flexible')}</h3>
               <p className="text-gray-600">
-                Anpassung an Ihre Bedürfnisse und Arbeitszeiten
+                {t('home.trust.flexible_desc')}
               </p>
             </div>
           </div>
@@ -57,13 +80,13 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section ref={ctaSectionRef} className="py-20 bg-blue-600 opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Bereit für Ihr kostenloses Erstgespräch?
+            {t('home.cta.title')}
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Lassen Sie uns besprechen, wie wir Ihr Backoffice optimieren können.
+            {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -72,10 +95,10 @@ const Index = () => {
               rel="noopener noreferrer"
               className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
             >
-              Jetzt Termin vereinbaren
+              {t('home.cta.book')}
             </a>
             <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
-              Mehr erfahren
+              {t('home.cta.learn_more')}
             </button>
           </div>
         </div>

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,30 @@ import { GraduationCap, Building2, Users, TrendingUp, Heart, Mail } from 'lucide
 import { Link } from 'react-router-dom';
 
 const UeberUns = () => {
+  const mainSectionRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const philosophyRef = useRef<HTMLElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    [mainSectionRef.current, timelineRef.current, philosophyRef.current, servicesRef.current, ctaRef.current]
+      .forEach(el => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -22,14 +46,18 @@ const UeberUns = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section ref={mainSectionRef} className="py-16 opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Introduction */}
           <div className="mb-16">
             <Card className="p-8">
               <div className="text-center mb-8">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-white font-bold text-4xl">LH</span>
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6">
+                  <img 
+                    src="/lovable-uploads/e753479d-a5a2-4126-866b-ce85a09912a3.png"
+                    alt="Laura Hähni"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Laura Hähni</h2>
                 <p className="text-xl text-blue-600 font-semibold">Gründerin & Geschäftsführerin</p>
@@ -46,7 +74,7 @@ const UeberUns = () => {
           </div>
 
           {/* Timeline */}
-          <div className="space-y-12">
+          <div ref={timelineRef} className="space-y-12 opacity-0 translate-y-4 transition-all duration-700">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Mein Werdegang</h2>
             
             {/* 2017 - Ausbildung */}
@@ -182,7 +210,7 @@ const UeberUns = () => {
           </div>
 
           {/* Philosophy Section */}
-          <section className="py-16">
+          <section ref={philosophyRef} className="py-16 opacity-0 translate-y-4 transition-all duration-700">
             <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
               <CardHeader className="text-center">
                 <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
@@ -230,20 +258,23 @@ const UeberUns = () => {
           </section>
 
           {/* Services Summary */}
-          <section className="py-12">
+          <section ref={servicesRef} className="py-12 opacity-0 translate-y-4 transition-all duration-700">
             <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-              Mein Leistungsspektrum heute
+              My range of services today
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                'Buchhaltung',
-                'Personalwesen', 
+                'Accounting',
+                'Human Resources', 
                 'Administration',
-                'Online-Präsenz Erstellung',
-                'Virtuelle Assistenz',
-                'Gesamtkonzept Backoffice'
+                'Online Presence Creation',
+                'Virtual Assistance',
+                'Complete Back Office Concept'
               ].map((service, index) => (
-                <Card key={index} className="text-center p-6">
+                <Card 
+                  key={index} 
+                  className="text-center p-6 hover:scale-105 hover:bg-blue-50 transition-all duration-300 cursor-pointer"
+                >
                   <CardContent>
                     <h4 className="font-semibold text-gray-900">{service}</h4>
                   </CardContent>
@@ -253,21 +284,21 @@ const UeberUns = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="py-16">
+          <section ref={ctaRef} className="py-16 opacity-0 translate-y-4 transition-all duration-700">
             <Card className="bg-blue-600 text-white text-center p-8">
               <CardContent>
-                <h3 className="text-3xl font-bold mb-4">Habe ich Ihr Interesse geweckt?</h3>
+                <h3 className="text-3xl font-bold mb-4">Have I sparked your interest?</h3>
                 <p className="text-xl mb-8 text-blue-100">
-                  Kontaktieren Sie mich gerne für ein kostenloses & unverbindliches Erstgespräch.
+                  Feel free to contact me for a free & non-binding initial consultation.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-                    <Link to="/buchung">Erstgespräch vereinbaren</Link>
+                    <Link to="/buchung">Schedule Initial Consultation</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
                     <Link to="/kontakt">
                       <Mail className="w-4 h-4 mr-2" />
-                      Kontakt aufnehmen
+                      Make Contact
                     </Link>
                   </Button>
                 </div>
