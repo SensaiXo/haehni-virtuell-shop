@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
-import { Calculator, Users, HeadphonesIcon, Search, FileText, TrendingUp } from 'lucide-react';
+import { Calculator, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SelectedPackage {
@@ -15,7 +14,6 @@ interface QuoteFormData {
   phone: string;
   company: string;
   message: string;
-  services: Record<string, SelectedPackage>;
 }
 
 const Leistungen = () => {
@@ -33,9 +31,9 @@ const Leistungen = () => {
     email: '',
     phone: '',
     company: '',
-    message: '',
-    services: {}
+    message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const services = [
     {
@@ -56,78 +54,6 @@ const Leistungen = () => {
       ]
     },
     {
-      icon: Users,
-      title: 'HR & Payroll',
-      description: 'Complete HR management for your business',
-      details: [
-        'Monthly payroll processing',
-        'Social insurance processing',
-        'Employment contract creation',
-        'Personnel administration',
-        'Time tracking and expense reports',
-        'Certificates and references'
-      ],
-      packages: [
-        { tier: 'Basic', price: 'From CHF 30 per payroll' },
-        { tier: 'Standard', price: 'CHF 800/month (up to 10 employees)' },
-        { tier: 'Premium', price: 'Comprehensive HR package on request' }
-      ]
-    },
-    {
-      icon: HeadphonesIcon,
-      title: 'Executive Assistance',
-      description: 'Virtual support for business leaders',
-      details: [
-        'Appointment scheduling and calendar management',
-        'Email management and correspondence',
-        'Travel planning and organization',
-        'Document creation and management',
-        'Meeting minutes and protocols',
-        'Project coordination'
-      ],
-      packages: [
-        { tier: 'Basic', price: 'From CHF 85/hour' },
-        { tier: 'Standard', price: 'CHF 1,500/month (20 hrs)' },
-        { tier: 'Premium', price: 'Full-time assistance on request' }
-      ]
-    },
-    {
-      icon: Search,
-      title: 'Online Research',
-      description: 'Professional market and competitor analysis',
-      details: [
-        'Market analysis and trends',
-        'Competitor monitoring',
-        'Supplier and partner research',
-        'Industry studies',
-        'Data collection and processing',
-        'Summary and presentation'
-      ],
-      packages: [
-        { tier: 'Basic', price: 'From CHF 65/hour' },
-        { tier: 'Standard', price: 'CHF 500 per research project' },
-        { tier: 'Premium', price: 'Ongoing market monitoring from CHF 800/month' }
-      ]
-    },
-    {
-      icon: FileText,
-      title: 'General Administration',
-      description: 'Office work and administrative support',
-      details: [
-        'General correspondence',
-        'Data entry and maintenance',
-        'Filing and document management',
-        'Invoice processing',
-        'Office management',
-        'Customer service'
-      ],
-      packages: [
-        { tier: 'Basic', price: 'From CHF 72/hour' },
-        { tier: 'Standard', price: 'CHF 1,000/month (15 hrs)' },
-        { tier: 'Premium', price: 'Full-service package on request' }
-      ]
-    },
-    {
       icon: TrendingUp,
       title: 'Consulting & Process Optimization',
       description: 'Strategic support for increased efficiency',
@@ -140,7 +66,7 @@ const Leistungen = () => {
         'Change management'
       ],
       packages: [
-        { tier: 'Basic', price: 'From CHF 132/hour' },
+        { tier: 'Basic', price: 'From CHF 130/hour' },
         { tier: 'Standard', price: 'CHF 2,500 analysis package' },
         { tier: 'Premium', price: 'Long-term consulting on request' }
       ]
@@ -175,7 +101,6 @@ const Leistungen = () => {
   const showContactForm = (type: 'single' | 'combined', serviceName: string, services: Record<string, SelectedPackage>) => {
     setModalType(type);
     setCurrentService(serviceName);
-    setFormData(prev => ({ ...prev, services }));
     setShowContactModal(true);
   };
 
@@ -204,9 +129,9 @@ const Leistungen = () => {
     showContactForm('combined', 'Multiple Services', selectedPackages);
   };
 
-  const submitQuoteForm = () => {
-    if (!formData.fullName.trim() || !formData.email.trim()) {
-      alert('Please fill in all required fields (Name and Email)');
+  const submitQuoteForm = async () => {
+    if (!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert('Please fill in all required fields (Full Name, Email, and Additional Details)');
       return;
     }
     
@@ -216,19 +141,55 @@ const Leistungen = () => {
       return;
     }
     
-    setShowContactModal(false);
-    setShowThankYouModal(true);
+    setIsSubmitting(true);
     
-    // Reset form and selections
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: '',
-      services: {}
-    });
-    setSelectedPackages({});
+    try {
+      // Build services text for submission
+      let servicesText = '';
+      Object.entries(selectedPackages).forEach(([service, details]) => {
+        if (servicesText) servicesText += ' | ';
+        servicesText += `${service}: ${details.tier} - ${details.price}`;
+      });
+
+      const submissionData = {
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        message: formData.message,
+        service: servicesText || 'No services selected'
+      };
+
+      const response = await fetch('https://submit-form.com/hgsbQqFkC', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      if (response.ok) {
+        setShowContactModal(false);
+        setShowThankYouModal(true);
+        
+        // Reset form and selections
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: ''
+        });
+        setSelectedPackages({});
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting your quote request. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const selectedCount = Object.keys(selectedPackages).length;
@@ -250,7 +211,7 @@ const Leistungen = () => {
       {/* Services Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                 {/* Service Header */}
@@ -263,7 +224,7 @@ const Leistungen = () => {
                 </div>
 
                 {/* Service Details */}
-                <div className="flex-grow mb-6">
+                <div className="flex-grow mb-8">
                   <ul className="space-y-3">
                     {service.details.map((detail, detailIndex) => (
                       <li key={detailIndex} className="flex items-start">
@@ -284,8 +245,8 @@ const Leistungen = () => {
                         <div
                           key={pkgIndex}
                           onClick={() => selectPackage(service.title, pkg.tier, pkg.price)}
-                          className={`p-4 border-l-4 ${getColorClasses(pkgIndex)} bg-gray-50 rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-50 hover:transform hover:-translate-y-0.5 hover:shadow-md relative ${
-                            isSelected ? 'bg-blue-100 border-blue-600 shadow-md border-2' : ''
+                          className={`p-5 border-l-4 ${getColorClasses(pkgIndex)} bg-gray-50 rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-50 hover:transform hover:-translate-y-0.5 hover:shadow-md relative ${
+                            isSelected ? 'bg-blue-100 border-blue-600 shadow-lg border-2' : ''
                           }`}
                         >
                           {isSelected && (
@@ -363,7 +324,7 @@ const Leistungen = () => {
             {/* Selected Services Summary */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
               <div className="font-semibold text-blue-900 mb-2">Selected Services:</div>
-              {Object.entries(formData.services).map(([service, details]) => (
+              {Object.entries(selectedPackages).map(([service, details]) => (
                 <div key={service} className="text-sm text-gray-700 mb-1">
                   <strong>{service}</strong>: {details.tier} - {details.price}
                 </div>
@@ -415,21 +376,23 @@ const Leistungen = () => {
               </div>
               
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Additional Details</label>
+                <label className="block font-semibold text-gray-700 mb-2">Additional Details *</label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                   placeholder="Tell us more about your requirements, timeline, or any specific questions..."
                   className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none h-24 resize-vertical"
+                  required
                 />
               </div>
               
               <div className="flex gap-3 justify-center pt-4">
                 <button
                   onClick={submitQuoteForm}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
+                  disabled={isSubmitting}
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Quote Request
+                  {isSubmitting ? 'Sending...' : 'Send Quote Request'}
                 </button>
                 <button
                   onClick={() => setShowContactModal(false)}
@@ -446,27 +409,29 @@ const Leistungen = () => {
       {/* Thank You Modal */}
       {showThankYouModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[2000] p-5">
-          <div className="bg-white rounded-xl p-8 max-w-lg w-full text-center">
+          <div className="bg-white rounded-xl p-8 max-w-2xl w-full text-center">
             <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <polyline points="20,6 9,17 4,12" strokeWidth="3"></polyline>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
             </div>
             
-            <h3 className="text-2xl font-bold text-green-600 mb-4">Thank You!</h3>
+            <h3 className="text-3xl font-bold text-green-500 mb-4">Thank You!</h3>
             
-            <p className="text-gray-700 mb-6">
+            <p className="text-lg text-gray-700 mb-6">
               Your quote request has been submitted successfully!<br />
               We've received your inquiry and will review your requirements carefully.
             </p>
             
-            <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-6 font-mono font-semibold text-green-800">
-              Reference: QR-{Date.now().toString().slice(-6)}
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+              <div className="font-mono font-semibold text-green-700">
+                Reference: QR-{Date.now().toString().slice(-6)}
+              </div>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
-              <div className="font-semibold text-gray-700 mb-3">What happens next:</div>
-              <ul className="text-sm text-gray-600 space-y-2">
+            <div className="bg-gray-50 rounded-lg p-5 mb-6 text-left">
+              <div className="font-semibold text-gray-900 mb-3">What happens next:</div>
+              <ul className="space-y-2 text-gray-700">
                 <li>• Our team will review your requirements within 2 hours</li>
                 <li>• We'll prepare a detailed quote tailored to your needs</li>
                 <li>• You'll receive our response within 24 hours via email</li>
@@ -498,10 +463,10 @@ const Leistungen = () => {
       {/* Message Modal */}
       {showMessageModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[2000] p-5">
-          <div className="bg-white rounded-xl p-8 max-w-md w-full">
+          <div className="bg-white rounded-xl p-8 max-w-lg w-full">
             <h3 className="text-xl font-bold text-gray-900 mb-4">{messageTitle}</h3>
-            <p className="text-gray-700 mb-6 whitespace-pre-line">{messageText}</p>
-            <div className="text-center">
+            <p className="text-gray-700 whitespace-pre-line mb-6">{messageText}</p>
+            <div className="flex justify-center">
               <button
                 onClick={() => setShowMessageModal(false)}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
@@ -514,15 +479,15 @@ const Leistungen = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+      <section className="bg-blue-600 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Interested in Our Services?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
             Schedule your free consultation now and let us find the best solution for your business together.
           </p>
-          <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
             Book Free Consultation
           </button>
         </div>
