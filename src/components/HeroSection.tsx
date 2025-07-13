@@ -16,8 +16,8 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
-                Ich kümmere mich um den Papierkram, die Buchhaltung und das Büro –<br className="hidden sm:block" />
-                damit du dich auf dein Business, deine Kunden und das Leben konzentrieren kannst.
+                Ich kümmere mich um den Papierkram, die Buchhaltung und das Büro.<br className="hidden sm:block" />
+                <span className="block mt-2">Damit du dich auf dein Business, deine Kunden und das Leben konzentrieren kannst.</span>
               </p>
               
               {/* Proof Bar */}
