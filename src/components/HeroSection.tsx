@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle, Users, Clock, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const HeroSection = () => {
   return <>
-      <section className="relative bg-gradient-to-br from-blue-100 to-blue-50 py-20 lg:py-32 overflow-hidden" itemScope itemType="http://schema.org/Organization">
+      <section className="relative bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] py-20 lg:py-32 overflow-hidden" itemScope itemType="http://schema.org/Organization">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
             <div className="lg:col-span-7">
@@ -32,25 +32,6 @@ const HeroSection = () => {
                   </Button>
                 </div>
 
-                {/* Benefits */}
-                <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="flex items-center justify-center lg:justify-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-green-500" />
-                    <span className="text-gray-700 font-medium">Flexibilität: Anpassbar an Ihren Bedarf</span>
-                  </div>
-                  <div className="flex items-center justify-center lg:justify-start space-x-3">
-                    <Clock className="w-6 h-6 text-blue-500" />
-                    <span className="text-gray-700 font-medium">Effizienz: Schnelle, präzise Prozesse</span>
-                  </div>
-                  <div className="flex items-center justify-center lg:justify-start space-x-3">
-                    <Shield className="w-6 h-6 text-purple-500" />
-                    <span className="text-gray-700 font-medium">Professionalität: Diskret & zuverlässig</span>
-                  </div>
-                  <div className="flex items-center justify-center lg:justify-start space-x-3">
-                    <Users className="w-6 h-6 text-blue-700" />
-                    <span className="text-gray-700 font-medium">Vertrauen: Langfristig auf Augenhöhe</span>
-                  </div>
-                </div>
               </div>
             </div>
 
