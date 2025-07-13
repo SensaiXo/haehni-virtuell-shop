@@ -12,6 +12,8 @@ import OnlineBuchung from "./pages/OnlineBuchung";
 import Products from "./pages/Products";
 import Kontakt from "./pages/Kontakt";
 import FAQ from "./pages/FAQ";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,7 +33,8 @@ const App = () => (
             <Route path="/buchung" element={<OnlineBuchung />} />
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/blog" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Blog - Coming Soon</h1></div>} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/datenschutz" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Datenschutz - Coming Soon</h1></div>} />
             <Route path="/impressum" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">Impressum - Coming Soon</h1></div>} />
             <Route path="/agb" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-3xl">AGB - Coming Soon</h1></div>} />
