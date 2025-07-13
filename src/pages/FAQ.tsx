@@ -5,24 +5,24 @@ import Layout from '@/components/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQItem = ({ question, answer, icon: Icon, isOpen, onToggle }) => (
-  <div className="border border-gray-200 rounded-lg mb-4 overflow-hidden">
+  <div className="border border-border rounded-lg mb-4 overflow-hidden shadow-card">
     <button
       onClick={onToggle}
-      className="w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex items-center justify-between"
+      className="w-full px-6 py-4 text-left bg-background hover:bg-muted transition-colors flex items-center justify-between"
     >
       <div className="flex items-center gap-3">
-        <Icon className="w-5 h-5 text-blue-600" />
-        <span className="font-medium text-gray-900">{question}</span>
+        <Icon className="w-5 h-5 text-accent" />
+        <span className="font-medium text-foreground">{question}</span>
       </div>
       {isOpen ? (
-        <ChevronUp className="w-5 h-5 text-gray-500" />
+        <ChevronUp className="w-5 h-5 text-muted-foreground" />
       ) : (
-        <ChevronDown className="w-5 h-5 text-gray-500" />
+        <ChevronDown className="w-5 h-5 text-muted-foreground" />
       )}
     </button>
     {isOpen && (
-      <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-        <div className="text-gray-700 leading-relaxed whitespace-pre-line">{answer}</div>
+      <div className="px-6 py-4 bg-warm-beige border-t border-border">
+        <div className="text-foreground leading-relaxed whitespace-pre-line">{answer}</div>
       </div>
     )}
   </div>
@@ -97,12 +97,28 @@ const FAQ = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      {/* JSON-LD Schema for SEO */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map((item, index) => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}
+      </script>
+      
+      <div className="min-h-screen bg-gradient-to-b from-background to-warm-beige">
         <div className="container mx-auto px-4 py-16 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900">{t('faq.title')}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold mb-4 text-foreground">{t('faq.title')}</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('faq.subtitle')}
             </p>
           </div>
@@ -122,23 +138,23 @@ const FAQ = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-16 text-center bg-blue-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="mt-16 text-center bg-muted rounded-lg p-8 shadow-card">
+            <h2 className="text-2xl font-bold text-foreground mb-4">
               {t('faq.cta.title')}
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-muted-foreground mb-6">
               {t('faq.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
                 href="mailto:info@bdlh.ekigicod.myhostpoint.ch"
-                className="bg-blue-600 text-white hover:bg-blue-700 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
               >
                 {t('faq.cta.email')}
               </a>
               <a
                 href="tel:+41796456686"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block"
               >
                 {t('faq.cta.call')}
               </a>
@@ -148,19 +164,19 @@ const FAQ = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-sm">
               <Link 
                 to="/products" 
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-accent hover:text-accent/80 underline"
               >
                 {t('faq.links.packages')}
               </Link>
               <Link 
                 to="/buchung" 
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-accent hover:text-accent/80 underline"
               >
                 {t('faq.links.booking')}
               </Link>
               <Link 
                 to="/kontakt" 
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="text-accent hover:text-accent/80 underline"
               >
                 {t('faq.links.contact')}
               </Link>
@@ -169,7 +185,7 @@ const FAQ = () => {
 
           {/* Discreet privacy notice */}
           <div className="mt-12 px-4">
-            <p className="text-xs text-gray-500 text-center">
+            <p className="text-xs text-muted-foreground text-center">
               {t('faq.privacy')}
             </p>
           </div>
