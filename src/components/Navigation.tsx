@@ -65,12 +65,8 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">BH</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-xl font-bold text-gray-900">Bürodienstleistungen</span>
-                <span className="text-lg text-blue-600 ml-1">Hähni</span>
+              <div className="bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] px-4 py-2 rounded-lg">
+                <span className="text-white font-bold text-xl">bdlh.ch</span>
               </div>
             </Link>
           </div>
