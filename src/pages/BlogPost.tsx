@@ -188,7 +188,7 @@ const BlogPost = () => {
                   if (paragraph.startsWith('- ')) {
                     return (
                       <li key={index} className="text-card-foreground mb-2 ml-4 list-disc">
-                        {paragraph.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
+                        {paragraph.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '$1')}
                       </li>
                     );
                   }
