@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle, Users, Clock, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const HeroSection = () => {
   return <>
-      <section className="relative bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] py-20 lg:py-32 overflow-hidden" itemScope itemType="http://schema.org/Organization">
+      <section className="relative bg-gradient-to-br from-blue-100 to-blue-50 py-20 lg:py-32 overflow-hidden" itemScope itemType="http://schema.org/Organization">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
             <div className="lg:col-span-7">
@@ -32,6 +32,8 @@ const HeroSection = () => {
                   </Button>
                 </div>
 
+                {/* Benefits */}
+                
               </div>
             </div>
 
