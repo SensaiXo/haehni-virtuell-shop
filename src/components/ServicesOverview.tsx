@@ -74,12 +74,12 @@ const ServicesOverview = () => {
 
   const getColorClasses = (color: string) => {
     const colors = {
-      blue: 'text-blue-600 bg-blue-100',
-      green: 'text-green-600 bg-green-100',
-      purple: 'text-purple-600 bg-purple-100',
-      orange: 'text-orange-600 bg-orange-100',
-      indigo: 'text-indigo-600 bg-indigo-100',
-      teal: 'text-teal-600 bg-teal-100'
+      blue: 'text-white bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE]',
+      green: 'text-white bg-gradient-to-br from-[#A4B8C7] to-[#8AA6C1]',
+      purple: 'text-white bg-gradient-to-br from-[#B8CCDE] to-[#A4B8C7]',
+      orange: 'text-white bg-gradient-to-br from-[#8AA6C1] to-[#9BB3C9]',
+      indigo: 'text-white bg-gradient-to-br from-[#9BB3C9] to-[#B8CCDE]',
+      teal: 'text-white bg-gradient-to-br from-[#A4B8C7] to-[#B8CCDE]'
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -115,7 +115,7 @@ const ServicesOverview = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></div>
+                      <div className="w-1.5 h-1.5 bg-[#8AA6C1] rounded-full mr-2"></div>
                       {feature}
                     </li>
                   ))}
@@ -126,7 +126,7 @@ const ServicesOverview = () => {
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+          <Button asChild size="lg" className="bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] hover:from-[#7A96B1] hover:to-[#A8BCCE] text-white">
             <Link to="/leistungen">
               {t('services.cta')}
             </Link>
