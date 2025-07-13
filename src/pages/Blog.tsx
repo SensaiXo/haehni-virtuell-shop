@@ -21,14 +21,14 @@ const blogPosts = [
 const Blog = () => {
   return (
     <Layout>
-      <div className="min-h-screen py-16 px-4">
+      <div className="min-h-screen py-16 px-4 bg-secondary">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Blog & Insights
             </h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Praktische Tipps, Einblicke und Erfahrungen rund um virtuelle Assistenz, 
               Digitalisierung und effizientes Arbeiten für Schweizer KMU.
             </p>
@@ -37,7 +37,7 @@ const Blog = () => {
           {/* Blog Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-white/10 backdrop-blur-sm border-white/20">
+              <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-card border border-border shadow-md">
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={post.image} 
@@ -46,17 +46,17 @@ const Blog = () => {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-white line-clamp-2 hover:text-blue-200 transition-colors">
+                  <CardTitle className="text-card-foreground line-clamp-2 hover:text-accent transition-colors">
                     <Link to={`/blog/${post.slug}`}>
                       {post.title}
                     </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-white/80 text-sm line-clamp-3 mb-4">
+                  <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-4 text-white/60 text-xs">
+                  <div className="flex items-center gap-4 text-muted-foreground text-xs">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
                       <span>{post.author}</span>
@@ -75,7 +75,7 @@ const Blog = () => {
                   <Button 
                     asChild 
                     variant="outline" 
-                    className="w-full border-white/20 text-white hover:bg-white/10"
+                    className="w-full border-border text-card-foreground hover:bg-muted"
                   >
                     <Link to={`/blog/${post.slug}`}>
                       Weiterlesen
@@ -88,19 +88,19 @@ const Blog = () => {
 
           {/* Newsletter Signup */}
           <div className="mt-20 text-center">
-            <Card className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm border-white/20">
+            <Card className="max-w-2xl mx-auto bg-card border border-border shadow-lg">
               <CardHeader>
-                <CardTitle className="text-white text-2xl">
+                <CardTitle className="text-card-foreground text-2xl">
                   Bleiben Sie auf dem Laufenden
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-white/80 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Erhalten Sie regelmäßig praktische Tipps und Insights direkt in Ihr Postfach.
                 </p>
                 <Button 
                   asChild 
-                  className="bg-white text-blue-900 hover:bg-white/90"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Link to="/kontakt">
                     Newsletter abonnieren

@@ -81,10 +81,10 @@ const BlogPost = () => {
   if (!post) {
     return (
       <Layout>
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-secondary">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-white mb-4">Artikel nicht gefunden</h1>
-            <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10">
+            <h1 className="text-3xl font-bold text-foreground mb-4">Artikel nicht gefunden</h1>
+            <Button asChild variant="outline" className="border-border text-card-foreground hover:bg-muted">
               <Link to="/blog">Zurück zum Blog</Link>
             </Button>
           </div>
@@ -119,13 +119,13 @@ const BlogPost = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen py-16 px-4">
+      <div className="min-h-screen py-16 px-4 bg-card">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
           <Button 
             asChild 
             variant="ghost" 
-            className="mb-8 text-white hover:bg-white/10"
+            className="mb-8 text-card-foreground hover:bg-muted"
           >
             <Link to="/blog">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -144,11 +144,11 @@ const BlogPost = () => {
 
           {/* Article Header */}
           <div className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               {post.title}
             </h1>
             
-            <div className="flex flex-wrap items-center gap-6 text-white/60 mb-6">
+            <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-6">
               <div className="flex items-center gap-2">
                 <User className="w-5 h-5" />
                 <span>{post.author}</span>
@@ -165,7 +165,7 @@ const BlogPost = () => {
                 onClick={sharePost}
                 variant="ghost"
                 size="sm"
-                className="text-white/60 hover:text-white hover:bg-white/10"
+                className="text-muted-foreground hover:text-accent hover:bg-muted"
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 Teilen
@@ -174,27 +174,27 @@ const BlogPost = () => {
           </div>
 
           {/* Article Content */}
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+          <Card className="bg-secondary border border-border shadow-lg">
             <CardContent className="p-8">
-              <div className="prose prose-lg prose-invert max-w-none">
+              <div className="prose prose-lg max-w-none">
                 {post.content.split('\n').map((paragraph, index) => {
                   if (paragraph.startsWith('## ')) {
                     return (
-                      <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4">
+                      <h2 key={index} className="text-2xl font-bold text-foreground mt-8 mb-4">
                         {paragraph.replace('## ', '')}
                       </h2>
                     );
                   }
                   if (paragraph.startsWith('- ')) {
                     return (
-                      <li key={index} className="text-white/80 mb-2">
+                      <li key={index} className="text-card-foreground mb-2 ml-4 list-disc">
                         {paragraph.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
                       </li>
                     );
                   }
                   if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                     return (
-                      <p key={index} className="text-white font-semibold mb-4">
+                      <p key={index} className="text-foreground font-semibold mb-4">
                         {paragraph.replace(/\*\*/g, '')}
                       </p>
                     );
@@ -205,11 +205,11 @@ const BlogPost = () => {
                   return (
                     <p 
                       key={index} 
-                      className="text-white/80 mb-4 leading-relaxed"
+                      className="text-card-foreground mb-4 leading-relaxed"
                       dangerouslySetInnerHTML={{
                         __html: paragraph
-                          .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
-                          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-300 hover:text-blue-200 underline">$1</a>')
+                          .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>')
+                          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-accent hover:text-accent/80 underline">$1</a>')
                       }}
                     />
                   );
@@ -220,19 +220,19 @@ const BlogPost = () => {
 
           {/* Call to Action */}
           <div className="mt-12 text-center">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+            <Card className="bg-card border border-border shadow-lg">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
                   Bereit für virtuelle Assistenz?
                 </h3>
-                <p className="text-white/80 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Lassen Sie uns in einem kostenlosen Erstgespräch besprechen, 
                   wie ich Ihr Unternehmen entlasten kann.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
                     asChild 
-                    className="bg-white text-blue-900 hover:bg-white/90"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     <Link to="/buchung">
                       Erstgespräch buchen
@@ -241,7 +241,7 @@ const BlogPost = () => {
                   <Button 
                     asChild 
                     variant="outline" 
-                    className="border-white/20 text-white hover:bg-white/10"
+                    className="border-border text-card-foreground hover:bg-muted"
                   >
                     <Link to="/leistungen">
                       Leistungen ansehen
