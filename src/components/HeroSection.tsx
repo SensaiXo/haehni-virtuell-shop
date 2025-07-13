@@ -33,14 +33,31 @@ const HeroSection = () => {
                 </div>
 
                 {/* Benefits */}
-                
+                <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="flex items-center justify-center lg:justify-start space-x-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    <span className="text-gray-700 font-medium">Flexibilität: Anpassbar an Ihren Bedarf</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start space-x-3">
+                    <Clock className="w-6 h-6 text-blue-500" />
+                    <span className="text-gray-700 font-medium">Effizienz: Schnelle, präzise Prozesse</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start space-x-3">
+                    <Shield className="w-6 h-6 text-purple-500" />
+                    <span className="text-gray-700 font-medium">Professionalität: Diskret & zuverlässig</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start space-x-3">
+                    <Users className="w-6 h-6 text-blue-700" />
+                    <span className="text-gray-700 font-medium">Vertrauen: Langfristig auf Augenhöhe</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="mt-12 lg:mt-0 lg:col-span-5">
               <div className="relative">
                 <div className="aspect-w-1 aspect-h-1 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl shadow-2xl overflow-hidden">
-                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/82ede0e0-24e7-4482-8e05-0f1e46efe8d2.png" />
+                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/783a212f-65c8-4cdb-8bef-fc29d360db1a.png" />
                 </div>
                 {/* Floating elements */}
                 <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3 max-w-xs transition-opacity duration-500 opacity-90 hover:opacity-100">
