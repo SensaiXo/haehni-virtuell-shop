@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div className="mt-12 lg:mt-0 lg:col-span-5">
               <div className="relative">
                 <div className="aspect-w-1 aspect-h-1 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl shadow-2xl overflow-hidden">
-                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/e5607a5a-dc34-4ce5-b4fd-ee3f5471c2a5.png" />
+                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/783a212f-65c8-4cdb-8bef-fc29d360db1a.png" />
                 </div>
                 {/* Floating elements */}
                 <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3 max-w-xs transition-opacity duration-500 opacity-90 hover:opacity-100">
