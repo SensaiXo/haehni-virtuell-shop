@@ -1,90 +1,95 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Users, Clock, Shield } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+
 const HeroSection = () => {
-  return <>
-      <section className="relative bg-card py-16 lg:py-24 overflow-hidden" itemScope itemType="http://schema.org/Organization">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
-            <div className="lg:col-span-7 mb-12 lg:mb-0">
-              <div className="text-center lg:text-left">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-                  <span className="text-foreground">Administration, die entlastet:</span><br />
-                  <span className="text-primary">Virtuelle Assistenz & Buchhaltung</span><br />
-                  <span className="text-muted-foreground">für KMU in der Schweiz</span>
-                </h1>
-                
-                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                  Virtuell stark, persönlich nah. <span className="font-semibold text-accent">Mehr Zeit für Ihr Kerngeschäft</span> – wir übernehmen Administration und Finanzen, remote und flexibel.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-3 transition-all duration-300 hover:shadow-lg">
-                    <a href="https://calendly.com/swissfinanceai/30min?utm_source=website&utm_medium=hero" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                      Kostenloses Erstgespräch buchen
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="text-accent border-accent/30 hover:bg-accent/10 text-lg px-8 py-3 transition-all duration-300">
-                    <Link to="/leistungen">
-                      Leistungen entdecken
-                    </Link>
-                  </Button>
-                </div>
-
-                {/* Benefits */}
-                
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="relative">
-                <div className="aspect-w-1 aspect-h-1 bg-gradient-to-br from-primary to-accent rounded-2xl shadow-2xl overflow-hidden">
-                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/82ede0e0-24e7-4482-8e05-0f1e46efe8d2.png" />
-                </div>
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 bg-card rounded-lg shadow-lg p-3 max-w-xs transition-opacity duration-500 opacity-90 hover:opacity-100 border border-border">
-                  <div className="flex items-center space-x-2">
-                    <Users className="w-5 h-5 text-accent" />
-                    <span className="text-sm font-medium text-card-foreground">Ihr Partner für effiziente Administration</span>
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-card rounded-lg shadow-lg p-3 max-w-xs transition-opacity duration-500 opacity-90 hover:opacity-100 border border-border">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-accent">10+</div>
-                    <div className="text-sm text-muted-foreground">Jahre Expertise in Schweizer KMU</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  const { t } = useLanguage();
+  
+  return (
+    <>
+      <section className="flex flex-col md:flex-row items-center justify-center bg-background py-16 px-4 min-h-[80vh]" itemScope itemType="http://schema.org/Organization">
+        <div className="max-w-xl md:mr-12 text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
+            {t('hero.title')}
+          </h1>
+          
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+            {t('hero.subtitle')}
+          </p>
+          
+          {/* Proof Bar */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+            <span className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+              {t('hero.proof.experience')}
+            </span>
+            <span className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+              {t('hero.proof.location')}
+            </span>
+            <span className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+              {t('hero.proof.personal')}
+            </span>
           </div>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            <a 
+              href="https://calendly.com/swissfinanceai/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg"
+            >
+              {t('hero.cta.primary')}
+            </a>
+            <Link 
+              to="/leistungen"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary hover:bg-primary/10 rounded-full font-semibold text-lg transition-all duration-300"
+            >
+              {t('hero.cta.secondary')}
+            </Link>
+          </div>
+          
+          {/* Microcopy */}
+          <div className="text-sm text-muted-foreground leading-relaxed">
+            {t('hero.microcopy').split('\n').map((line, index) => (
+              <div key={index}>{line}</div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Portrait */}
+        <div className="mt-12 md:mt-0">
+          <img
+            src="/lovable-uploads/82ede0e0-24e7-4482-8e05-0f1e46efe8d2.png"
+            alt="Laura Hähni – Virtuelle Assistentin"
+            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-primary shadow-xl mx-auto"
+          />
         </div>
       </section>
 
       {/* Structured Data for SEO */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Bürodienstleistungen Hähni",
-        "url": "https://bdlh.ch",
-        "description": "Virtuelle Assistenz und Buchhaltung für KMU in der Schweiz – virtuell stark, persönlich nah.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Langwiesstrasse 30",
-          "addressLocality": "Frauenfeld",
-          "postalCode": "8500",
-          "addressCountry": "CH"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+41-79-645-66-86",
-          "contactType": "customer service",
-          "email": "info@bdlh.ch"
-        }
-      })
-    }} />
-    </>;
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Bürodienstleistungen Hähni",
+          "url": "https://bdlh.ch",
+          "description": "Virtuelle Assistenz und Buchhaltung für KMU in der Schweiz – virtuell stark, persönlich nah.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Langwiesstrasse 30",
+            "addressLocality": "Frauenfeld",
+            "postalCode": "8500",
+            "addressCountry": "CH"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+41-79-645-66-86",
+            "contactType": "customer service",
+            "email": "info@bdlh.ch"
+          }
+        })
+      }} />
+    </>
+  );
 };
 export default HeroSection;

@@ -10,6 +10,16 @@ interface LanguageContextType {
 
 const translations = {
   de: {
+    // Hero Section
+    'hero.title': 'Mehr Zeit für das, was zählt.',
+    'hero.subtitle': 'Ich kümmere mich um den Papierkram, die Buchhaltung und das Büro – damit du dich auf dein Business, deine Kunden und das Leben konzentrieren kannst.',
+    'hero.proof.experience': '✅ Über 10 Jahre Erfahrung',
+    'hero.proof.location': '🏠 Frauenfeld, Thurgau',
+    'hero.proof.personal': '🤝 100% persönlich & flexibel',
+    'hero.cta.primary': 'Kostenloses Erstgespräch buchen',
+    'hero.cta.secondary': 'Leistungen entdecken',
+    'hero.microcopy': 'Direkter Draht zu mir – keine Hotline, keine Bürokratie.\nVertraulich. Digital. Einfach. Keine Verpflichtung – nur ein persönliches Gespräch.',
+    
     // Navigation
     'nav.home': 'Startseite',
     'nav.services_packages': 'Leistungen & Pakete',
