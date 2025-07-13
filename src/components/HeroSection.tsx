@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div className="mt-12 lg:mt-0 lg:col-span-5">
               <div className="relative">
                 <div className="aspect-w-1 aspect-h-1 bg-gradient-to-br from-blue-400 to-blue-700 rounded-2xl shadow-2xl overflow-hidden">
-                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/d8b7ace8-0f44-45e1-9c14-08e427aa93eb.png" />
+                  <img alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" className="w-full h-full object-cover" loading="lazy" src="/lovable-uploads/82ede0e0-24e7-4482-8e05-0f1e46efe8d2.png" />
                 </div>
                 {/* Floating elements */}
                 <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3 max-w-xs transition-opacity duration-500 opacity-90 hover:opacity-100">
@@ -54,10 +54,6 @@ const HeroSection = () => {
                     <div className="text-2xl font-bold text-blue-700">10+</div>
                     <div className="text-sm text-gray-600">Jahre Expertise in Schweizer KMU</div>
                   </div>
-                </div>
-                {/* Coffee/Work-Life Balance Floating Element */}
-                <div className="absolute top-1/2 -left-8 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 w-16 h-16 transition-all duration-500 opacity-80 hover:opacity-100 hover:scale-110">
-                  <img alt="Perfect work-life balance" className="w-full h-full object-cover rounded-full" loading="lazy" src="/lovable-uploads/482dd5d7-d199-4820-b0fb-333fab9fd4cf.png" />
                 </div>
               </div>
             </div>
