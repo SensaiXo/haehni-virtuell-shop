@@ -34,44 +34,44 @@ const Index = () => {
       <ServicesOverview />
       
       {/* Trust Section */}
-      <section ref={trustSectionRef} className="py-20 bg-white/50 backdrop-blur-sm opacity-0 translate-y-4 transition-all duration-700">
+      <section ref={trustSectionRef} className="py-20 bg-card opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
               {t('home.trust.title')}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-muted-foreground">
               {t('home.trust.subtitle')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold text-white">10+</span>
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-2xl font-bold text-primary-foreground">10+</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.experience')}</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-card-foreground mb-2">{t('home.trust.experience')}</h3>
+              <p className="text-muted-foreground">
                 {t('home.trust.experience_desc')}
               </p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-brand-secondary to-brand-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold text-white">100%</span>
+              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-2xl font-bold text-accent-foreground">100%</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.remote')}</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-card-foreground mb-2">{t('home.trust.remote')}</h3>
+              <p className="text-muted-foreground">
                 {t('home.trust.remote_desc')}
               </p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-brand-accent to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <span className="text-2xl font-bold text-white">24/7</span>
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span className="text-2xl font-bold text-primary-foreground">24/7</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.flexible')}</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-card-foreground mb-2">{t('home.trust.flexible')}</h3>
+              <p className="text-muted-foreground">
                 {t('home.trust.flexible_desc')}
               </p>
             </div>
@@ -80,12 +80,12 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaSectionRef} className="py-20 bg-gradient-to-br from-brand-primary to-brand-secondary opacity-0 translate-y-4 transition-all duration-700">
+      <section ref={ctaSectionRef} className="py-20 bg-primary opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
             {t('home.cta.title')}
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-primary-foreground/90 mb-8">
             {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -93,11 +93,11 @@ const Index = () => {
               href="https://calendly.com/swissfinanceai/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-brand-primary hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block shadow-lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block shadow-lg"
             >
               {t('home.cta.book')}
             </a>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-brand-primary font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+            <button className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
               {t('home.cta.learn_more')}
             </button>
           </div>

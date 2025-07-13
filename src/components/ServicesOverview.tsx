@@ -74,24 +74,24 @@ const ServicesOverview = () => {
 
   const getColorClasses = (color: string) => {
     const colors = {
-      blue: 'text-white bg-gradient-to-br from-brand-primary to-brand-secondary',
-      green: 'text-white bg-gradient-to-br from-brand-secondary to-brand-primary',
-      purple: 'text-white bg-gradient-to-br from-brand-accent to-brand-secondary',
-      orange: 'text-white bg-gradient-to-br from-brand-primary to-brand-accent',
-      indigo: 'text-white bg-gradient-to-br from-brand-accent to-brand-primary',
-      teal: 'text-white bg-gradient-to-br from-brand-secondary to-brand-accent'
+      blue: 'text-white bg-primary',
+      green: 'text-white bg-accent',
+      purple: 'text-white bg-primary',
+      orange: 'text-white bg-accent',
+      indigo: 'text-white bg-primary',
+      teal: 'text-white bg-accent'
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white opacity-0 translate-y-4 transition-all duration-700">
+    <section ref={sectionRef} className="py-20 bg-secondary opacity-0 translate-y-4 transition-all duration-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {t('services.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {t('services.subtitle')}
           </p>
         </div>
@@ -100,22 +100,22 @@ const ServicesOverview = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="hover:shadow-lg hover:scale-105 hover:bg-gray-50 transition-all duration-300 border-0 shadow-md cursor-pointer"
+              className="hover:shadow-lg hover:scale-105 hover:bg-card/80 transition-all duration-300 border border-border shadow-md cursor-pointer bg-card"
             >
               <CardHeader>
                 <div className={`w-12 h-12 rounded-lg ${getColorClasses(service.color)} flex items-center justify-center mb-4`}>
                   <service.icon className="w-6 h-6" />
                 </div>
-                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardTitle className="text-xl mb-2 text-card-foreground">{service.title}</CardTitle>
+                <CardDescription className="text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2"></div>
+                    <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></div>
                       {feature}
                     </li>
                   ))}
@@ -126,7 +126,7 @@ const ServicesOverview = () => {
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-secondary text-white">
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
             <Link to="/leistungen">
               {t('services.cta')}
             </Link>
