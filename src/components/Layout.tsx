@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE]">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-brand-light to-brand-accent">
       <Navigation />
       <main className="flex-grow">
         {children}

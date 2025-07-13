@@ -23,13 +23,13 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-[#8AA6C1]" />
-                <a href="mailto:info@bdlh.ch" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">
+                <Mail className="w-5 h-5 text-brand-primary" />
+                <a href="mailto:info@bdlh.ch" className="text-gray-600 hover:text-brand-primary transition-colors">
                   info@bdlh.ch
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-[#8AA6C1]" />
+                <MapPin className="w-5 h-5 text-brand-primary" />
                 <span className="text-gray-600">Frauenfeld, Thurgau, Schweiz</span>
               </div>
             </div>
@@ -39,12 +39,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-900">Navigation</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">Startseite</Link></li>
-              <li><Link to="/leistungen" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">Leistungen</Link></li>
-              <li><Link to="/buchung" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">Online-Buchung</Link></li>
-              <li><Link to="/ueber-uns" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">Über uns</Link></li>
-              <li><Link to="/kontakt" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">Kontakt</Link></li>
-              <li><Link to="/blog" className="text-gray-600 hover:text-[#8AA6C1] transition-colors">Blog</Link></li>
+              <li><Link to="/" className="text-gray-600 hover:text-brand-primary transition-colors">Startseite</Link></li>
+              <li><Link to="/leistungen" className="text-gray-600 hover:text-brand-primary transition-colors">Leistungen</Link></li>
+              <li><Link to="/buchung" className="text-gray-600 hover:text-brand-primary transition-colors">Online-Buchung</Link></li>
+              <li><Link to="/ueber-uns" className="text-gray-600 hover:text-brand-primary transition-colors">Über uns</Link></li>
+              <li><Link to="/kontakt" className="text-gray-600 hover:text-brand-primary transition-colors">Kontakt</Link></li>
+              <li><Link to="/blog" className="text-gray-600 hover:text-brand-primary transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -69,13 +69,13 @@ const Footer = () => {
               © 2024 bdlh.ch. Alle Rechte vorbehalten.
             </div>
             <div className="flex space-x-6">
-              <Link to="/datenschutz" className="text-gray-500 hover:text-[#8AA6C1] text-sm transition-colors">
+              <Link to="/datenschutz" className="text-gray-500 hover:text-brand-primary text-sm transition-colors">
                 Datenschutz
               </Link>
-              <Link to="/impressum" className="text-gray-500 hover:text-[#8AA6C1] text-sm transition-colors">
+              <Link to="/impressum" className="text-gray-500 hover:text-brand-primary text-sm transition-colors">
                 Impressum
               </Link>
-              <Link to="/agb" className="text-gray-500 hover:text-[#8AA6C1] text-sm transition-colors">
+              <Link to="/agb" className="text-gray-500 hover:text-brand-primary text-sm transition-colors">
                 AGB
               </Link>
             </div>

@@ -74,12 +74,12 @@ const ServicesOverview = () => {
 
   const getColorClasses = (color: string) => {
     const colors = {
-      blue: 'text-white bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE]',
-      green: 'text-white bg-gradient-to-br from-[#A4B8C7] to-[#8AA6C1]',
-      purple: 'text-white bg-gradient-to-br from-[#B8CCDE] to-[#A4B8C7]',
-      orange: 'text-white bg-gradient-to-br from-[#8AA6C1] to-[#9BB3C9]',
-      indigo: 'text-white bg-gradient-to-br from-[#9BB3C9] to-[#B8CCDE]',
-      teal: 'text-white bg-gradient-to-br from-[#A4B8C7] to-[#B8CCDE]'
+      blue: 'text-white bg-gradient-to-br from-brand-primary to-brand-secondary',
+      green: 'text-white bg-gradient-to-br from-brand-secondary to-brand-primary',
+      purple: 'text-white bg-gradient-to-br from-brand-accent to-brand-secondary',
+      orange: 'text-white bg-gradient-to-br from-brand-primary to-brand-accent',
+      indigo: 'text-white bg-gradient-to-br from-brand-accent to-brand-primary',
+      teal: 'text-white bg-gradient-to-br from-brand-secondary to-brand-accent'
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -115,7 +115,7 @@ const ServicesOverview = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-[#8AA6C1] rounded-full mr-2"></div>
+                      <div className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2"></div>
                       {feature}
                     </li>
                   ))}
@@ -126,7 +126,7 @@ const ServicesOverview = () => {
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" className="bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] hover:from-[#7A96B1] hover:to-[#A8BCCE] text-white">
+          <Button asChild size="lg" className="bg-brand-primary hover:bg-brand-secondary text-white">
             <Link to="/leistungen">
               {t('services.cta')}
             </Link>

@@ -64,10 +64,12 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] px-4 py-2 rounded-lg">
-                <span className="text-white font-bold text-xl">bdlh.ch</span>
-              </div>
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/09cc67d5-a2fd-4e02-9403-a4dbd8ed55fb.png" 
+                alt="BÜRODIENSTLEISTUNGEN Hähni Logo" 
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
@@ -82,8 +84,8 @@ const Navigation = () => {
                         onClick={() => handleDropdownToggle(item.name)}
                         className={`px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-colors duration-200 flex items-center space-x-1 whitespace-nowrap ${
                           isDropdownActive(item.dropdown)
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                            ? 'bg-brand-light text-brand-primary'
+                            : 'text-gray-700 hover:bg-muted hover:text-brand-primary'
                         }`}
                       >
                         <span>{item.name}</span>
@@ -132,7 +134,7 @@ const Navigation = () => {
               <span className="hidden xl:inline">info@bdlh.ch</span>
             </div>
             <LanguageToggle />
-            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-xs xl:text-sm px-3 xl:px-4">
+            <Button asChild className="bg-brand-primary hover:bg-brand-secondary text-xs xl:text-sm px-3 xl:px-4">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
                 {t('cta.booking')}
               </a>

@@ -47,7 +47,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-white">10+</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.experience')}</h3>
@@ -57,7 +57,7 @@ const Index = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#A4B8C7] to-[#8AA6C1] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-secondary to-brand-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-white">100%</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.remote')}</h3>
@@ -67,7 +67,7 @@ const Index = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#B8CCDE] to-[#A4B8C7] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-accent to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <span className="text-2xl font-bold text-white">24/7</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('home.trust.flexible')}</h3>
@@ -80,7 +80,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaSectionRef} className="py-20 bg-gradient-to-br from-[#8AA6C1] to-[#B8CCDE] opacity-0 translate-y-4 transition-all duration-700">
+      <section ref={ctaSectionRef} className="py-20 bg-gradient-to-br from-brand-primary to-brand-secondary opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             {t('home.cta.title')}
@@ -93,11 +93,11 @@ const Index = () => {
               href="https://calendly.com/swissfinanceai/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-[#8AA6C1] hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block shadow-lg"
+              className="bg-white text-brand-primary hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 inline-block shadow-lg"
             >
               {t('home.cta.book')}
             </a>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-[#8AA6C1] font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+            <button className="border-2 border-white text-white hover:bg-white hover:text-brand-primary font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
               {t('home.cta.learn_more')}
             </button>
           </div>
