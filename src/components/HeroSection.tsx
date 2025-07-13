@@ -64,9 +64,9 @@ const HeroSection = () => {
                 <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl ring-8 ring-primary/5 bg-gradient-to-br from-primary/5 to-accent/5">
                   <img 
                     alt="Laura Hähni – Virtuelle Assistentin und Buchhalterin für KMU in der Schweiz" 
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-cover object-center" 
                     loading="lazy" 
-                    src="/lovable-uploads/82ede0e0-24e7-4482-8e05-0f1e46efe8d2.png" 
+                    src="/lovable-uploads/bcba4a70-2042-41ab-b00e-dbebaf65b148.png" 
                   />
                 </div>
                 {/* Subtle floating accent */}
