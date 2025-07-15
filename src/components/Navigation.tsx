@@ -57,33 +57,33 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-primary shadow-sm border-b border-primary/20 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="bg-primary sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="flex justify-between items-center h-[68px]">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center p-3">
               <img 
                 src="/lovable-uploads/09cc67d5-a2fd-4e02-9403-a4dbd8ed55fb.png" 
                 alt="BÜRODIENSTLEISTUNGEN Hähni Logo" 
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-2 xl:space-x-4">
+            <div className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.dropdown ? (
                     <div className="relative">
                       <button
                         onClick={() => handleDropdownToggle(item.name)}
-                        className={`px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-colors duration-200 flex items-center space-x-1 whitespace-nowrap ${
+                        className={`px-4 py-2 text-base font-medium transition-all duration-300 flex items-center space-x-1 whitespace-nowrap ${
                           isDropdownActive(item.dropdown)
-                            ? 'bg-primary-foreground/10 text-primary-foreground'
-                            : 'text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground'
+                            ? 'text-primary-foreground border-b-2 border-accent'
+                            : 'text-primary-foreground hover:text-accent'
                         }`}
                       >
                         <span>{item.name}</span>
@@ -111,10 +111,10 @@ const Navigation = () => {
                   ) : (
                     <Link
                       to={item.path}
-                      className={`px-2 xl:px-3 py-2 rounded-md text-xs xl:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                      className={`px-4 py-2 text-base font-medium transition-all duration-300 whitespace-nowrap relative ${
                         isActive(item.path)
-                          ? 'bg-primary-foreground/10 text-primary-foreground'
-                          : 'text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground'
+                          ? 'text-primary-foreground border-b-2 border-accent'
+                          : 'text-primary-foreground hover:text-accent'
                       }`}
                     >
                       {item.name}
@@ -126,13 +126,13 @@ const Navigation = () => {
           </div>
 
           {/* Contact Info, Language Toggle & CTA */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
-            <div className="flex items-center space-x-2 text-xs xl:text-sm text-primary-foreground/80">
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center space-x-2 text-base text-primary-foreground">
               <Mail className="w-4 h-4" />
-              <span className="hidden xl:inline">info@bdlh.ch</span>
+              <span>info@bdlh.ch</span>
             </div>
             <LanguageToggle />
-            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-xs xl:text-sm px-3 xl:px-4">
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-base font-semibold px-6 py-3 rounded-lg">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
                 {t('cta.booking')}
               </a>
@@ -143,7 +143,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-primary-foreground hover:bg-primary-foreground/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -153,7 +153,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+            <div className="px-4 pt-2 pb-3 space-y-1 bg-primary border-t border-primary-foreground/20">
               {navItems.map((item) => (
                 <div key={item.name}>
                   {item.dropdown ? (
@@ -162,8 +162,8 @@ const Navigation = () => {
                         onClick={() => handleDropdownToggle(item.name)}
                         className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center justify-between ${
                           isDropdownActive(item.dropdown)
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                            ? 'bg-accent/10 text-accent'
+                            : 'text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent'
                         }`}
                       >
                         <span>{item.name}</span>
@@ -181,8 +181,8 @@ const Navigation = () => {
                               }}
                               className={`block px-3 py-2 rounded-md text-sm transition-colors duration-200 ${
                                 isActive(subItem.path)
-                                  ? 'bg-blue-100 text-blue-700'
-                                  : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                                  ? 'bg-accent/10 text-accent'
+                                  : 'text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-accent'
                               }`}
                             >
                               {subItem.name}
@@ -197,8 +197,8 @@ const Navigation = () => {
                       onClick={() => setIsOpen(false)}
                       className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                         isActive(item.path)
-                          ? 'bg-blue-100 text-blue-700'
-                          : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                          ? 'bg-accent/10 text-accent'
+                          : 'text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent'
                       }`}
                     >
                       {item.name}
@@ -206,15 +206,15 @@ const Navigation = () => {
                   )}
                 </div>
               ))}
-              <div className="px-3 py-2 border-t mt-2">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+              <div className="px-3 py-4 border-t border-primary-foreground/20 mt-4">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-2 text-base text-primary-foreground">
                     <Mail className="w-4 h-4" />
                     <span>info@bdlh.ch</span>
                   </div>
                   <LanguageToggle />
                 </div>
-                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-lg">
                   <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     {t('cta.booking')}
                   </a>

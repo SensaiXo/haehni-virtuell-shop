@@ -27,14 +27,14 @@ All colors MUST be HSL.
     --popover-foreground: 220 25% 14%;
 
     /* Brand colors */
-    --primary: 220 50% 20%; /* #1A2747 deep navy */
-    --primary-foreground: 0 0% 100%; /* White text on navy */
+    --primary: 218 55% 20%; /* #1A284B Swiss Blue */
+    --primary-foreground: 0 0% 100%; /* Pure white text */
 
     --secondary: 220 20% 88%; /* #DBE2EA gentle gray */
     --secondary-foreground: 220 25% 14%;
 
-    --accent: 215 100% 62%; /* #388BFF azur blue */
-    --accent-foreground: 0 0% 100%; /* White text on azur */
+    --accent: 213 85% 53%; /* #2978D6 strong blue for CTA */
+    --accent-foreground: 0 0% 100%; /* Pure white text */
 
     /* Neutral colors */
     --muted: 220 20% 88%; /* #DBE2EA gentle gray */
