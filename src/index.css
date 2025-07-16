@@ -16,29 +16,30 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Base colors */
-    --background: 220 20% 97%; /* #F7F8FA warm beige/light gray */
-    --foreground: 220 25% 14%; /* #19202A off-black navy */
+    --background: 0 0% 100%; /* White main background */
+    --foreground: 236 85% 30%; /* Navy text on white */
 
     /* Card and surface colors */
     --card: 0 0% 100%; /* Pure white for cards */
-    --card-foreground: 220 25% 14%;
+    --card-foreground: 236 85% 30%; /* Navy text on white cards */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 14%;
+    --popover-foreground: 236 85% 30%;
 
-    /* Brand colors - Updated to match proposed scheme */
-    --primary: 236 85% 30%; /* #0c128a Main navy blue for text & buttons */
-    --primary-foreground: 0 0% 100%; /* Pure white text */
+    /* Brand colors - Light blue sections */
+    --primary: 217 50% 71%; /* #94acd3 Light blue for primary sections */
+    --primary-foreground: 0 0% 100%; /* White text on light blue */
 
-    --secondary: 220 20% 88%; /* #DBE2EA gentle gray */
-    --secondary-foreground: 220 25% 14%;
+    /* White sections */
+    --secondary: 0 0% 100%; /* Pure white for secondary sections */
+    --secondary-foreground: 236 85% 30%; /* Navy text on white */
 
     --accent: 210 71% 43%; /* #1e73be Accent blue for icons & highlights */
-    --accent-foreground: 0 0% 100%; /* Pure white text */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
     /* Neutral colors */
-    --muted: 220 20% 88%; /* #DBE2EA gentle gray */
-    --muted-foreground: 220 15% 35%; /* Darker gray for muted text */
+    --muted: 220 20% 88%; /* Light gray for muted backgrounds */
+    --muted-foreground: 210 71% 43%; /* Accent blue for muted text */
 
     /* Semantic colors */
     --destructive: 0 84% 60%;
@@ -47,11 +48,11 @@ All colors MUST be HSL.
     /* UI elements */
     --border: 220 20% 85%; /* Soft border color */
     --input: 220 20% 85%;
-    --ring: 215 100% 62%; /* Azur blue for focus rings */
+    --ring: 210 71% 43%; /* Accent blue for focus rings */
 
     --radius: 0.5rem;
 
-    /* Custom brand palette - Updated with proposed colors */
+    /* Custom brand palette - Exact colors from user spec */
     --brand-navy: 236 85% 30%; /* #0c128a Main navy blue */
     --brand-navy-dark: 210 55% 24%; /* #1a365d Darker navy variant */
     --brand-blue: 210 71% 43%; /* #1e73be Accent blue */
@@ -60,13 +61,20 @@ All colors MUST be HSL.
     --brand-white: 0 0% 100%; /* #ffffff Clean white */
     --brand-beige: 220 20% 97%; /* #F7F8FA warm beige */
     --brand-gray: 220 20% 88%; /* #DBE2EA gentle gray */
-    --brand-text: 220 25% 14%; /* #19202A off-black navy */
+    --brand-text: 236 85% 30%; /* #0c128a Navy text */
     
     /* Semantic aliases for specific use cases */
-    --hero-overlay: 217 50% 71%; /* Light vibrant blue for hero backgrounds */
-    --testimonial-overlay: 217 50% 71%; /* Light vibrant blue for testimonial backgrounds */
-    --button-primary-bg: 217 50% 71%; /* Light vibrant blue for primary buttons */
-    --button-primary-border: 236 85% 30%; /* Main navy for button borders */
+    --hero-overlay: 217 50% 71%; /* Light blue for hero backgrounds */
+    --testimonial-overlay: 217 50% 71%; /* Light blue for testimonial backgrounds */
+    --button-primary-bg: 217 50% 71%; /* Light blue for primary buttons */
+    --button-primary-border: 236 85% 30%; /* Navy for button borders */
+    
+    /* Section-specific colors */
+    --light-blue-section: 217 50% 71%; /* #94acd3 Light blue sections */
+    --light-blue-text: 0 0% 100%; /* White text on light blue */
+    --white-section: 0 0% 100%; /* White sections */
+    --white-section-text: 236 85% 30%; /* Navy text on white */
+    --white-section-accent: 210 71% 43%; /* Accent blue on white */
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

@@ -311,13 +311,13 @@ const ServicesOverview = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-secondary opacity-0 translate-y-4 transition-all duration-700">
+    <section ref={sectionRef} className="py-20 bg-[hsl(var(--white-section))] opacity-0 translate-y-4 transition-all duration-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--white-section-text))] mb-4">
             {t('pricing.title')}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-[hsl(var(--white-section-accent))] max-w-3xl mx-auto">
             {t('pricing.subtitle')}
           </p>
         </div>
@@ -328,12 +328,12 @@ const ServicesOverview = () => {
               {/* Service Header */}
               <div className="text-center">
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center mr-4">
+                  <div className="w-16 h-16 rounded-2xl bg-[hsl(var(--white-section-accent))] text-white flex items-center justify-center mr-4">
                     <service.icon className="w-8 h-8" />
                   </div>
                   <div className="text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">{service.title}</h3>
-                    <p className="text-lg text-muted-foreground">{service.description}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--white-section-text))]">{service.title}</h3>
+                    <p className="text-lg text-[hsl(var(--white-section-text))]/70">{service.description}</p>
                   </div>
                 </div>
               </div>
@@ -346,24 +346,24 @@ const ServicesOverview = () => {
                     className="hover:shadow-lg hover:scale-105 transition-all duration-300 border border-border shadow-md bg-card relative overflow-hidden"
                   >
                     <CardHeader className="pb-4">
-                      <CardTitle className="text-lg font-semibold text-card-foreground">
+                      <CardTitle className="text-lg font-semibold text-[hsl(var(--white-section-text))]">
                         {pkg.name}
                       </CardTitle>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-[hsl(var(--white-section-text))]/70">
                         {pkg.included}
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-[hsl(var(--white-section-text))]/70">
                         {pkg.hours}
                       </div>
                     </CardHeader>
                     
                     <CardContent className="pt-0">
                       <div className="mb-4">
-                        <div className="text-3xl font-bold text-primary mb-1">
+                        <div className="text-3xl font-bold text-[hsl(var(--white-section-accent))] mb-1">
                           {pkg.price}
                         </div>
                         {pkg.extra && (
-                          <div className="text-xs text-muted-foreground">
+                          <div className="text-xs text-[hsl(var(--white-section-text))]/70">
                             {pkg.extra}
                           </div>
                         )}
@@ -371,7 +371,7 @@ const ServicesOverview = () => {
                       
                       <Button 
                         size="sm" 
-                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                        className="w-full bg-[hsl(var(--white-section-accent))] hover:bg-[hsl(var(--white-section-accent))]/90 text-white"
                         asChild
                       >
                         <Link to="/kontakt">
@@ -387,7 +387,7 @@ const ServicesOverview = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
+          <Button asChild size="lg" className="bg-[hsl(var(--white-section-accent))] hover:bg-[hsl(var(--white-section-accent))]/90 text-white shadow-lg">
             <Link to="/leistungen">
               {t('pricing.cta.details')}
             </Link>
