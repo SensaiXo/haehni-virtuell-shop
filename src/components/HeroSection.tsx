@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Monitor, ShieldCheck, MapPin, Briefcase } from 'lucide-react';
+import { ArrowRight, Zap, Award, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 const HeroSection = () => {
@@ -32,8 +32,8 @@ const HeroSection = () => {
               >
                 <img 
                   src="/lovable-uploads/237ca005-2004-4d97-8868-42de03d7be44.png" 
-                  alt="BÜRODIENSTLEISTUNGEN Hähni Logo" 
-                  className="h-16 w-auto"
+                  alt="Laura Hähni Bürodienstleistungen Logo" 
+                  className="h-24 w-auto"
                 />
               </motion.div>
               
@@ -43,8 +43,9 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Buchhaltung &<br />
-                Administration
+                Buchhaltung<br />
+                Administration<br />
+                Organisation
               </motion.h1>
               
               <motion.p 
@@ -69,8 +70,8 @@ const HeroSection = () => {
                   transition={{ duration: 0.2 }}
                   style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
                 >
-                  <Monitor className="text-[#1e73be] w-5 h-5 mr-2" />
-                  Modern & digital
+                  <Zap className="text-[#1e73be] w-5 h-5 mr-2" />
+                  Flexibel
                 </motion.span>
                 <motion.span 
                   className="bg-[#bbc8dd] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
@@ -78,8 +79,8 @@ const HeroSection = () => {
                   transition={{ duration: 0.2 }}
                   style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
                 >
-                  <ShieldCheck className="text-[#1e73be] w-5 h-5 mr-2" />
-                  Vertraulich & sicher
+                  <Award className="text-[#1e73be] w-5 h-5 mr-2" />
+                  Professionell
                 </motion.span>
                 <motion.span 
                   className="bg-[#94acd3] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
@@ -87,17 +88,8 @@ const HeroSection = () => {
                   transition={{ duration: 0.2 }}
                   style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
                 >
-                  <MapPin className="text-[#1e73be] w-5 h-5 mr-2" />
-                  Frauenfeld, Thurgau
-                </motion.span>
-                <motion.span 
-                  className="bg-[#bbc8dd] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                  style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
-                >
-                  <Briefcase className="text-[#1e73be] w-5 h-5 mr-2" />
-                  Für Schweizer KMU
+                  <Clock className="text-[#1e73be] w-5 h-5 mr-2" />
+                  Effizient
                 </motion.span>
               </motion.div>
               
@@ -142,8 +134,8 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                Ich kümmere mich um den Papierkram, die Buchhaltung und das Büro.<br className="hidden sm:block" />
-                <span className="block mt-2">Damit du dich auf dein Business, deine Kunden und das Leben konzentrieren kannst.</span>
+                "Grüezi, ich bin Laura Hähni...<br className="hidden sm:block" />
+                <span className="block mt-2">Seit einigen Jahren bin ich als virtuelle Assistentin selbstständig und unterstütze Unternehmen dabei, ihre Buchhaltung und administrativen Aufgaben effizient zu meistern. Vor meiner Selbstständigkeit konnte ich in verschiedenen Funktionen wertvolle Erfahrungen sammeln, die ich heute gezielt einsetze.</span>
               </motion.p>
 
               {/* Portrait */}
@@ -187,8 +179,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
-                Direkter Draht zu mir – keine Hotline, keine Bürokratie.<br />
-                Vertraulich. Digital. Einfach. Keine Verpflichtung – nur ein persönliches Gespräch.
+                Mein Anspruch? Präzise Arbeit, schnelle Ergebnisse und faire Konditionen – damit Sie sich voll und ganz auf Ihr Business konzentrieren können. Ich freue mich darauf, Sie kennenzulernen und Ihnen den Alltag zu erleichtern!
               </motion.div>
             </div>
           </motion.div>
