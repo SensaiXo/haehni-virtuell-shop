@@ -39,8 +39,8 @@ const translations = {
     'products.faq.title': 'Häufig gestellte Fragen',
     
     // Contact page
-    'contact.title': 'Laura Hähni Office Services kontaktieren',
-    'contact.subtitle': 'Ich freue mich zu hören, wie ich Ihr Unternehmen unterstützen kann. Ob Sie sich für ein Servicepaket interessieren, ein individuelles Angebot benötigen oder einfach eine Frage haben - kontaktieren Sie mich gerne.',
+    'contact.title': 'Kontakt',
+    'contact.subtitle': 'Ich freue mich zu hören, wie ich Ihr Unternehmen unterstützen kann.',
     'contact.info.title': 'Kontaktinformationen',
     'contact.info.email': 'E-Mail',
     'contact.info.phone': 'Telefon / WhatsApp',
@@ -59,8 +59,8 @@ const translations = {
     'contact.privacy.text': 'Ihre persönlichen Daten werden sicher und in Übereinstimmung mit den Schweizer Datenschutzgesetzen behandelt. Ich teile keine Daten mit Dritten und verwende Ihre Angaben nur, um auf Ihre Anfrage zu antworten.',
     
     // FAQ page
-    'faq.title': 'Häufig Gestellte Fragen (FAQ) zu Virtuellen Assistenz-Diensten',
-    'faq.subtitle': 'Als zertifizierte virtuelle Assistentin in der Schweiz helfe ich KMU, Selbstständigen und Privatpersonen, administrative Lasten zu reduzieren. Diese FAQ deckt gängige Suchanfragen ab und ist suchmaschinenoptimiert für bessere Auffindbarkeit.',
+    'faq.title': 'FAQ',
+    'faq.subtitle': 'Häufig gestellte Fragen zu virtuellen Assistenz-Diensten in der Schweiz.',
     'faq.q1': 'Was macht eine virtuelle Assistentin genau?',
     'faq.a1': 'Eine virtuelle Assistentin übernimmt administrative, organisatorische und finanzielle Aufgaben remote, damit Sie sich auf Ihr Kerngeschäft konzentrieren können. Bei Bürodienstleistungen Hähni umfassen das E-Mail-Management, Terminplanung, Buchhaltung, Personaladministration und mehr – alles 100% digital und flexibel. Im Gegensatz zu traditionellen Büros bieten wir Schweizer Präzision ohne Vor-Ort-Präsenz.\n\nVorteile: Sparen Sie bis zu 30% an internen Kosten durch Outsourcing.\n\n→ Mehr zu unseren Leistungen unter /leistungen\n→ Bereit zu starten? Buchen Sie ein kostenloses Erstgespräch unter /buchung',
     'faq.q2': 'Welche Vorteile hat die Einstellung einer virtuellen Assistentin für KMU in der Schweiz?',
@@ -314,8 +314,8 @@ const translations = {
     'products.faq.title': 'Frequently Asked Questions',
     
     // Contact page
-    'contact.title': 'Contact Laura Hähni Office Services',
-    'contact.subtitle': 'I\'d love to hear how I can support your business. Whether you\'re interested in a service package, need a custom quote, or simply have a question — feel free to get in touch.',
+    'contact.title': 'Contact',
+    'contact.subtitle': 'I\'d love to hear how I can support your business.',
     'contact.info.title': 'Contact Information',
     'contact.info.email': 'Email',
     'contact.info.phone': 'Phone / WhatsApp',
@@ -334,8 +334,8 @@ const translations = {
     'contact.privacy.text': 'Your personal information is handled securely and in accordance with Swiss data protection laws. I do not share data with third parties and will only use your details to respond to your inquiry.',
     
     // FAQ page
-    'faq.title': 'Frequently Asked Questions (FAQ) about Virtual Assistant Services',
-    'faq.subtitle': 'As a certified virtual assistant in Switzerland, I help SMEs, freelancers, and individuals reduce administrative burdens. This FAQ covers common search queries and is search engine optimized for better findability.',
+    'faq.title': 'FAQ',
+    'faq.subtitle': 'Frequently asked questions about virtual assistant services in Switzerland.',
     'faq.q1': 'What exactly does a virtual assistant do?',
     'faq.a1': 'A virtual assistant handles administrative, organizational, and financial tasks remotely, allowing you to focus on your core business. At Bürodienstleistungen Hähni, this includes email management, scheduling, bookkeeping, HR admin, and more – all 100% digital and flexible. Unlike traditional offices, we offer Swiss precision without on-site presence.\n\nBenefits: Save up to 30% on internal costs through outsourcing.\n\n→ More about our services at /services\n→ Ready to start? Book a free consultation at /booking',
     'faq.q2': 'What are the benefits of hiring a virtual assistant for SMEs in Switzerland?',

@@ -68,7 +68,7 @@ const OnlineBuchung = () => {
     <Layout>
       <PageHeader 
         title="Online-Buchung"
-        subtitle="Buchen Sie Ihr kostenloses Erstgespräch oder entdecken Sie empfehlenswerte Online-Kurse"
+        subtitle="Buchen Sie Ihr kostenloses Erstgespräch oder entdecken Sie empfehlenswerte Online-Kurse."
       />
 
       {/* Booking Section */}

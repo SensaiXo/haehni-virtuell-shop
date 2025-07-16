@@ -36,7 +36,7 @@ const UeberUns = () => {
     <Layout>
       <PageHeader 
         title="Über uns"
-        subtitle="Willkommen bei Bürodienstleistungen Hähni – Lernen Sie die Person hinter dem Unternehmen kennen"
+        subtitle="Lernen Sie die Person hinter dem Unternehmen kennen."
       />
 
       {/* Main Content */}
