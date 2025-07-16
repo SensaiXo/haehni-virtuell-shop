@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Monitor, ShieldCheck, MapPin, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { CheckIcon, LocationIcon, HandshakeIcon } from '@/components/ui/icons';
 const HeroSection = () => {
   return <>
       <section className="relative overflow-hidden">
@@ -24,16 +23,18 @@ const HeroSection = () => {
             {/* Background overlay for better text readability */}
             <div className="absolute inset-0 bg-[hsl(var(--light-blue-section))]/70"></div>
             <div className="max-w-lg w-full text-center lg:text-left relative z-10">
-              {/* Company Name Border */}
+              {/* Logo */}
               <motion.div 
-                className="inline-block border-2 border-white px-6 py-3 mb-8 rounded-lg"
+                className="mb-8 flex justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span className="text-white text-sm font-medium tracking-wide">
-                  BÜRODIENSTLEISTUNGEN HÄHNI
-                </span>
+                <img 
+                  src="/lovable-uploads/237ca005-2004-4d97-8868-42de03d7be44.png" 
+                  alt="BÜRODIENSTLEISTUNGEN Hähni Logo" 
+                  className="h-16 w-auto"
+                />
               </motion.div>
               
               <motion.h1 
@@ -55,37 +56,49 @@ const HeroSection = () => {
                 Virtuell stark, persönlich nah.
               </motion.p>
               
-              {/* Proof Bar */}
+              {/* Premium Badges */}
               <motion.div 
-                className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10"
+                className="flex flex-wrap justify-center lg:justify-start gap-2 mb-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <motion.div 
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 border border-white/30 rounded-full text-sm font-medium text-white shadow-sm"
+                <motion.span 
+                  className="bg-[#94acd3] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
+                  style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
                 >
-                  <CheckIcon className="w-4 h-4 text-white" />
-                  Über 10 Jahre Erfahrung
-                </motion.div>
-                <motion.div 
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 border border-white/30 rounded-full text-sm font-medium text-white shadow-sm"
+                  <Monitor className="text-[#1e73be] w-5 h-5 mr-2" />
+                  Modern & digital
+                </motion.span>
+                <motion.span 
+                  className="bg-[#bbc8dd] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
+                  style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
                 >
-                  <LocationIcon className="w-4 h-4 text-white" />
+                  <ShieldCheck className="text-[#1e73be] w-5 h-5 mr-2" />
+                  Vertraulich & sicher
+                </motion.span>
+                <motion.span 
+                  className="bg-[#94acd3] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                  style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
+                >
+                  <MapPin className="text-[#1e73be] w-5 h-5 mr-2" />
                   Frauenfeld, Thurgau
-                </motion.div>
-                <motion.div 
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 border border-white/30 rounded-full text-sm font-medium text-white shadow-sm"
+                </motion.span>
+                <motion.span 
+                  className="bg-[#bbc8dd] text-[#0c128a] flex items-center font-medium rounded-full px-4 py-1 text-base shadow-sm"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
+                  style={{ boxShadow: '0 1px 4px rgba(26, 54, 93, 0.07)' }}
                 >
-                  <HandshakeIcon className="w-4 h-4 text-white" />
-                  100% persönlich & flexibel
-                </motion.div>
+                  <Briefcase className="text-[#1e73be] w-5 h-5 mr-2" />
+                  Für Schweizer KMU
+                </motion.span>
               </motion.div>
               
               {/* CTAs */}

@@ -60,16 +60,8 @@ const Navigation = () => {
     <nav className="bg-primary sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex justify-between items-center h-[68px]">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center p-3">
-              <img 
-                src="/lovable-uploads/237ca005-2004-4d97-8868-42de03d7be44.png" 
-                alt="BÜRODIENSTLEISTUNGEN Hähni Logo" 
-                className="h-10 w-auto"
-              />
-            </Link>
-          </div>
+          {/* Logo removed - now in hero section */}
+          <div className="flex-shrink-0"></div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
