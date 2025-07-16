@@ -322,8 +322,8 @@ const Products = () => {
       )}
 
       <PageHeader 
-        title={language === 'de' ? 'Virtuelle Assistenz-Pakete für Schweizer Unternehmen' : 'Virtual Assistant Packages for Swiss Businesses'}
-        subtitle={language === 'de' ? 'Alle Services werden 100% remote von Laura Hähni geliefert, ansässig in Frauenfeld, Schweiz. Keine Vor-Ort-Besuche – nur effizienter, flexibler Support, wo immer Sie sind.' : 'All services are delivered 100% remotely by Laura Hähni, based in Frauenfeld, Switzerland. No on-site visits – just efficient, flexible support wherever you are.'}
+        title={language === 'de' ? 'Preis-Pakete für Schweizer Unternehmen' : 'Price Packages for Swiss Businesses'}
+        subtitle={language === 'de' ? 'Professionelle virtuelle Assistenz-Services von Laura Hähni aus Frauenfeld.' : 'Professional virtual assistant services from Laura Hähni based in Frauenfeld.'}
       />
       
       <div className="min-h-screen bg-gray-50">
