@@ -7,15 +7,23 @@ import { CheckIcon, LocationIcon, HandshakeIcon } from '@/components/ui/icons';
 const HeroSection = () => {
   return <>
       <section className="relative overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-          {/* Light Blue Box - Left/Top */}
+        <div className="min-h-screen">
+          {/* Light Blue Box - Top */}
           <motion.div 
-            className="bg-[hsl(var(--light-blue-section))] py-20 lg:py-28 px-6 lg:px-8 flex items-center justify-center"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="bg-[hsl(var(--light-blue-section))] py-20 lg:py-28 px-6 lg:px-8 flex items-center justify-center relative"
+            style={{
+              backgroundImage: `url('/lovable-uploads/27c650dc-803c-4bfe-b036-4c741d943c2f.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="max-w-lg w-full text-center lg:text-left">
+            {/* Background overlay for better text readability */}
+            <div className="absolute inset-0 bg-[hsl(var(--light-blue-section))]/70"></div>
+            <div className="max-w-lg w-full text-center lg:text-left relative z-10">
               {/* Company Name Border */}
               <motion.div 
                 className="inline-block border-2 border-white px-6 py-3 mb-8 rounded-lg"
@@ -109,8 +117,8 @@ const HeroSection = () => {
           {/* White Box - Right/Bottom */}
           <motion.div 
             className="bg-white py-20 lg:py-28 px-6 lg:px-8 flex items-center justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="max-w-lg w-full text-center">
