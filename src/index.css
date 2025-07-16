@@ -26,14 +26,14 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 14%;
 
-    /* Brand colors */
-    --primary: 218 55% 20%; /* #1A284B Swiss Blue */
+    /* Brand colors - Updated to match proposed scheme */
+    --primary: 236 85% 30%; /* #0c128a Main navy blue for text & buttons */
     --primary-foreground: 0 0% 100%; /* Pure white text */
 
     --secondary: 220 20% 88%; /* #DBE2EA gentle gray */
     --secondary-foreground: 220 25% 14%;
 
-    --accent: 213 85% 53%; /* #2978D6 strong blue for CTA */
+    --accent: 210 71% 43%; /* #1e73be Accent blue for icons & highlights */
     --accent-foreground: 0 0% 100%; /* Pure white text */
 
     /* Neutral colors */
@@ -51,12 +51,22 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Custom brand palette */
-    --brand-navy: 220 50% 20%; /* #1A2747 deep navy */
+    /* Custom brand palette - Updated with proposed colors */
+    --brand-navy: 236 85% 30%; /* #0c128a Main navy blue */
+    --brand-navy-dark: 210 55% 24%; /* #1a365d Darker navy variant */
+    --brand-blue: 210 71% 43%; /* #1e73be Accent blue */
+    --brand-light-vibrant: 217 50% 71%; /* #94acd3 Light vibrant blue */
+    --brand-light-muted: 217 35% 81%; /* #bbc8dd Light muted blue */
+    --brand-white: 0 0% 100%; /* #ffffff Clean white */
     --brand-beige: 220 20% 97%; /* #F7F8FA warm beige */
     --brand-gray: 220 20% 88%; /* #DBE2EA gentle gray */
-    --brand-azur: 215 100% 62%; /* #388BFF azur blue */
     --brand-text: 220 25% 14%; /* #19202A off-black navy */
+    
+    /* Semantic aliases for specific use cases */
+    --hero-overlay: 217 50% 71%; /* Light vibrant blue for hero backgrounds */
+    --testimonial-overlay: 217 50% 71%; /* Light vibrant blue for testimonial backgrounds */
+    --button-primary-bg: 217 50% 71%; /* Light vibrant blue for primary buttons */
+    --button-primary-border: 236 85% 30%; /* Main navy for button borders */
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
