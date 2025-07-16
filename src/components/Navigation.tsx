@@ -121,7 +121,7 @@ const Navigation = () => {
 
           {/* Contact Info, Language Toggle & CTA */}
           <div className="hidden lg:flex items-center space-x-6">
-            <span className="text-2xl cursor-pointer" onClick={() => window.location.href = '/kontakt'}>📧</span>
+            <Mail className="w-6 h-6 text-navy cursor-pointer hover:text-navy/70 transition-colors" onClick={() => window.location.href = '/kontakt'} />
             <LanguageToggle />
             <Button asChild className="bg-navy hover:bg-navy/80 text-white text-base font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
@@ -199,7 +199,7 @@ const Navigation = () => {
               ))}
               <div className="px-3 py-4 border-t border-primary-foreground/20 mt-4">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl cursor-pointer" onClick={() => window.location.href = '/kontakt'}>📧</span>
+                  <Mail className="w-6 h-6 text-primary-foreground cursor-pointer hover:text-primary-foreground/70 transition-colors" onClick={() => window.location.href = '/kontakt'} />
                   <LanguageToggle />
                 </div>
                 <Button asChild className="w-full bg-navy hover:bg-navy/80 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg">
