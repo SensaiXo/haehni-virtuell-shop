@@ -322,7 +322,7 @@ const Products = () => {
       )}
 
       <PageHeader 
-        title={language === 'de' ? 'Preis-Pakete für Schweizer Unternehmen' : 'Price Packages for Swiss Businesses'}
+        title={language === 'de' ? 'Preis-Pakete' : 'Price Packages'}
         subtitle={language === 'de' ? 'Professionelle virtuelle Assistenz-Services von Laura Hähni aus Frauenfeld.' : 'Professional virtual assistant services from Laura Hähni based in Frauenfeld.'}
       />
       
