@@ -7,6 +7,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface SelectedPackage {
   tier: string;
   price: string;
+  effort: string;
+  note: string;
 }
 
 interface QuoteFormData {
@@ -40,121 +42,165 @@ const Leistungen = () => {
   const services = [
     {
       icon: Calculator,
-      title: 'Accounting',
-      description: 'Professional bookkeeping and financial administration',
+      title: 'Buchhaltung',
+      description: 'Professionelle Buchhaltung und Finanzadministration',
       details: [
-        'Accounts receivable and payable',
-        'Monthly and annual financial statements',
-        'VAT processing',
-        'Cash book management',
-        'Document digitization and booking'
+        'Doppelte Buchhaltung',
+        'Monats- und Jahresabschlüsse',
+        'MWST-Abrechnung',
+        'Kassenbuch-Führung',
+        'Belege digitalisieren und verbuchen'
       ],
       packages: [
-        { tier: 'Basic', price: 'From CHF 90/hour' },
-        { tier: 'Standard', price: 'CHF 1,200/month (Basic package)' },
-        { tier: 'Premium', price: 'Custom solution on request' }
+        { tier: 'Mini (bis 40 Belege)', price: 'CHF 300.– exkl. MwSt', effort: '3 Std', note: 'Mehrbelege: CHF 2.– je Beleg' },
+        { tier: 'Standard (bis 100)', price: 'CHF 540.– exkl. MwSt', effort: '6 Std', note: '' },
+        { tier: 'Business (bis 200)', price: 'CHF 900.– exkl. MwSt', effort: '10 Std', note: '' },
+        { tier: 'Plus (bis 300)', price: 'CHF 1\'050.– exkl. MwSt', effort: '14 Std', note: '' }
       ]
     },
     {
       icon: Users,
-      title: 'HR & Payroll',
-      description: 'Complete HR management for your business',
+      title: 'Lohnadministration',
+      description: 'Komplette Lohnabrechnung für Ihr Unternehmen',
       details: [
-        'Monthly payroll processing',
-        'Social insurance processing',
-        'Employment contract creation',
-        'Personnel administration',
-        'Time tracking and expense reports',
-        'Certificates and references'
+        'Monatliche Lohnabrechnung',
+        'Sozialversicherungen',
+        'Lohnausweise',
+        'Lohnbuchhaltung',
+        'Quellensteuer',
+        'Unfallversicherung'
       ],
       packages: [
-        { tier: 'Basic', price: 'From CHF 30 per payroll' },
-        { tier: 'Standard', price: 'CHF 800/month (up to 10 employees)' },
-        { tier: 'Premium', price: 'Comprehensive HR package on request' }
+        { tier: 'Basic (1 Lohn)', price: 'CHF 75.– exkl. MwSt', effort: '0.75 Std', note: 'Mehrlöhne: CHF 25.– je Lohn' },
+        { tier: 'Standard (bis 3)', price: 'CHF 180.– exkl. MwSt', effort: '2 Std', note: '' },
+        { tier: 'Business (bis 8)', price: 'CHF 405.– exkl. MwSt', effort: '4.5 Std', note: '' },
+        { tier: 'Plus (bis 15)', price: 'CHF 600.– exkl. MwSt', effort: '8 Std', note: '' }
       ]
     },
     {
-      icon: HeadphonesIcon,
-      title: 'Executive Assistance',
-      description: 'Virtual support for business leaders',
+      icon: Users,
+      title: 'Personaladministration',
+      description: 'Professionelle Personalverwaltung',
       details: [
-        'Appointment scheduling and calendar management',
-        'Email management and correspondence',
-        'Travel planning and organization',
-        'Document creation and management',
-        'Meeting minutes and protocols',
-        'Project coordination'
+        'Personalakten führen',
+        'Arbeitsverträge erstellen',
+        'Mutationen verarbeiten',
+        'Zeugnisse und Referenzen',
+        'Personalstatistiken',
+        'Versicherungsanmeldungen'
       ],
       packages: [
-        { tier: 'Basic', price: 'From CHF 85/hour' },
-        { tier: 'Standard', price: 'CHF 1,500/month (20 hrs)' },
-        { tier: 'Premium', price: 'Full-time assistance on request' }
-      ]
-    },
-    {
-      icon: Search,
-      title: 'Online Research',
-      description: 'Professional market and competitor analysis',
-      details: [
-        'Market analysis and trends',
-        'Competitor monitoring',
-        'Supplier and partner research',
-        'Industry studies',
-        'Data collection and processing',
-        'Summary and presentation'
-      ],
-      packages: [
-        { tier: 'Basic', price: 'From CHF 65/hour' },
-        { tier: 'Standard', price: 'CHF 500 per research project' },
-        { tier: 'Premium', price: 'Ongoing market monitoring from CHF 800/month' }
+        { tier: 'Basic (1 Mutation)', price: 'CHF 75.– exkl. MwSt', effort: '0.75 Std', note: 'Mehrmutationen: CHF 25.–' },
+        { tier: 'Standard (bis 3)', price: 'CHF 180.– exkl. MwSt', effort: '2 Std', note: '' },
+        { tier: 'Business (bis 5)', price: 'CHF 315.– exkl. MwSt', effort: '3.5 Std', note: '' },
+        { tier: 'Plus (unbegrenzt)', price: 'CHF 450.– exkl. MwSt', effort: '–', note: '' }
       ]
     },
     {
       icon: FileText,
-      title: 'General Administration',
-      description: 'Office work and administrative support',
+      title: 'Zahlungsläufe & Mahnwesen',
+      description: 'Effiziente Zahlungsabwicklung und Mahnverfahren',
       details: [
-        'General correspondence',
-        'Data entry and maintenance',
-        'Filing and document management',
-        'Invoice processing',
-        'Office management',
-        'Customer service'
+        'Zahlungsläufe erstellen',
+        'Mahnungen verschicken',
+        'Debitorenverwaltung',
+        'Zahlungseingänge kontrollieren',
+        'Inkasso-Unterstützung',
+        'Payment-Tracking'
       ],
       packages: [
-        { tier: 'Basic', price: 'From CHF 72/hour' },
-        { tier: 'Standard', price: 'CHF 1,000/month (15 hrs)' },
-        { tier: 'Premium', price: 'Full-service package on request' }
+        { tier: 'Mini (10 Zahlungen & 5 Mahnungen)', price: 'CHF 125.– exkl. MwSt', effort: '1.25 Std', note: 'Mehrbelege: CHF 2.– je Zahlung/Mahnung' },
+        { tier: 'Standard (bis 25 & 10)', price: 'CHF 225.– exkl. MwSt', effort: '2.5 Std', note: '' },
+        { tier: 'Business (bis 40 & 20)', price: 'CHF 315.– exkl. MwSt', effort: '3.5 Std', note: '' }
       ]
     },
     {
-      icon: TrendingUp,
-      title: 'Consulting & Process Optimization',
-      description: 'Strategic support for increased efficiency',
+      icon: HeadphonesIcon,
+      title: 'Virtuelle Assistenz',
+      description: 'Flexible Unterstützung für Geschäftsführer',
       details: [
-        'Process analysis and optimization',
-        'Digitization consulting',
-        'Workflow design',
-        'Software recommendations',
-        'Training and implementation',
-        'Change management'
+        'Terminplanung und Kalender',
+        'E-Mail-Management',
+        'Reiseplanung',
+        'Dokumentenerstellung',
+        'Protokolle und Sitzungen',
+        'Projektkoordination'
       ],
       packages: [
-        { tier: 'Basic', price: 'From CHF 132/hour' },
-        { tier: 'Standard', price: 'CHF 2,500 analysis package' },
-        { tier: 'Premium', price: 'Long-term consulting on request' }
+        { tier: 'Light', price: 'CHF 100.– exkl. MwSt', effort: '1 Std', note: 'Mehrstunden: CHF 100.–/h' },
+        { tier: 'Standard', price: 'CHF 270.– exkl. MwSt', effort: '3 Std', note: 'Mehrstunden: CHF 90.–/h' },
+        { tier: 'Business', price: 'CHF 375.– exkl. MwSt', effort: '5 Std', note: 'Mehrstunden: CHF 75.–/h' },
+        { tier: 'Max', price: 'CHF 750.– exkl. MwSt', effort: '10 Std', note: '' }
+      ]
+    },
+    {
+      icon: Search,
+      title: 'Kommunikation & Organisation',
+      description: 'Professionelle Kommunikation und Organisation',
+      details: [
+        'Korrespondenz führen',
+        'Terminorganisation',
+        'Veranstaltungsplanung',
+        'Kundenbetreuung',
+        'Präsentationen erstellen',
+        'Organisationsstrukturen'
+      ],
+      packages: [
+        { tier: 'Kompakt', price: 'CHF 100.– exkl. MwSt', effort: '1 Std', note: 'Mehrstunden: CHF 100.–/h' },
+        { tier: 'Standard', price: 'CHF 270.– exkl. MwSt', effort: '3 Std', note: 'Mehrstunden: CHF 90.–/h' },
+        { tier: 'Intensiv', price: 'CHF 375.– exkl. MwSt', effort: '5 Std', note: 'Mehrstunden: CHF 75.–/h' },
+        { tier: 'Max', price: 'CHF 750.– exkl. MwSt', effort: '10 Std', note: '' }
+      ]
+    },
+    {
+      icon: FileText,
+      title: 'Spesenverarbeitung',
+      description: 'Effiziente Spesenabrechnung und -verwaltung',
+      details: [
+        'Spesenbelege erfassen',
+        'Spesenkonten führen',
+        'Abrechnungen erstellen',
+        'Kategorisierung',
+        'Steueroptimierung',
+        'Reporting und Statistiken'
+      ],
+      packages: [
+        { tier: 'Mini (bis 10 Belege)', price: 'CHF 100.– exkl. MwSt', effort: '1 Std', note: 'Mehrbelege: CHF 2.–' },
+        { tier: 'Standard (bis 25)', price: 'CHF 180.– exkl. MwSt', effort: '2 Std', note: '' },
+        { tier: 'Business (bis 50)', price: 'CHF 315.– exkl. MwSt', effort: '3.5 Std', note: '' },
+        { tier: 'Plus (bis 80)', price: 'CHF 375.– exkl. MwSt', effort: '5 Std', note: '' },
+        { tier: 'Max (bis 100+)', price: 'CHF 750.– exkl. MwSt', effort: '10 Std', note: '' }
+      ]
+    },
+    {
+      icon: HeadphonesIcon,
+      title: 'Mailbetreuung',
+      description: 'Professionelle E-Mail-Verwaltung und Kundenbetreuung',
+      details: [
+        'E-Mail-Postfach betreuen',
+        'Kundenanfragen bearbeiten',
+        'E-Mail-Korrespondenz',
+        'Terminvereinbarungen',
+        'Follow-up Kommunikation',
+        'E-Mail-Marketing Support'
+      ],
+      packages: [
+        { tier: 'Mini', price: 'CHF 100.– exkl. MwSt', effort: '1 Std', note: 'Mehrstunden: CHF 100.–/h' },
+        { tier: 'Standard', price: 'CHF 270.– exkl. MwSt', effort: '3 Std', note: 'Mehrstunden: CHF 90.–/h' },
+        { tier: 'Business', price: 'CHF 375.– exkl. MwSt', effort: '5 Std', note: 'Mehrstunden: CHF 75.–/h' },
+        { tier: 'Max', price: 'CHF 750.– exkl. MwSt', effort: '10 Std', note: '' }
       ]
     }
   ];
 
-  const selectPackage = (service: string, tier: string, price: string) => {
+  const selectPackage = (service: string, tier: string, price: string, effort: string, note: string) => {
     setSelectedPackages(prev => {
       const newSelection = { ...prev };
       
       if (newSelection[service]?.tier === tier) {
         delete newSelection[service];
       } else {
-        newSelection[service] = { tier, price };
+        newSelection[service] = { tier, price, effort, note };
       }
       
       return newSelection;
@@ -238,12 +284,28 @@ const Leistungen = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Services
+          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
+            Unsere Leistungen
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional business administration services for companies of all sizes. Let us handle your administrative tasks so you can focus on your core business.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Modulare Dienstleistungspakete für Schweizer KMU. Wir kümmern uns um Ihre Administration, damit Sie sich auf Ihr Geschäft konzentrieren können.
           </p>
+          
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
+              <span className="font-semibold text-blue-900">Modern & Digital</span>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
+              <span className="font-semibold text-blue-900">Vertraulich & Sicher</span>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
+              <span className="font-semibold text-blue-900">Frauenfeld, Thurgau</span>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
+              <span className="font-semibold text-blue-900">Für Schweizer KMU</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -252,7 +314,7 @@ const Leistungen = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+              <div key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-blue-50'} border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-1 transition-all duration-300 flex flex-col h-full`}>
                 {/* Service Header */}
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -276,43 +338,62 @@ const Leistungen = () => {
 
                 {/* Pricing Section */}
                 <div className="border-t border-gray-200 pt-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Pricing Packages</h3>
-                  <div className="space-y-3 mb-6">
-                    {service.packages.map((pkg, pkgIndex) => {
-                      const isSelected = selectedPackages[service.title]?.tier === pkg.tier;
-                      return (
-                        <div
-                          key={pkgIndex}
-                          onClick={() => selectPackage(service.title, pkg.tier, pkg.price)}
-                          className={`p-4 border-l-4 ${getColorClasses(pkgIndex)} bg-gray-50 rounded-lg cursor-pointer transition-all duration-300 hover:bg-blue-50 hover:transform hover:-translate-y-0.5 hover:shadow-md relative ${
-                            isSelected ? 'bg-blue-100 border-blue-600 shadow-md border-2' : ''
-                          }`}
-                        >
-                          {isSelected && (
-                            <div className="absolute top-2 right-3 text-blue-600 font-bold text-lg">✓</div>
-                          )}
-                          <div className="font-semibold text-gray-900 text-center">{pkg.tier}</div>
-                          <div className="text-blue-600 font-medium text-sm text-center mt-2">{pkg.price}</div>
-                        </div>
-                      );
-                    })}
+                  <h3 className="text-lg font-semibold text-navy mb-4 text-center">Pakete</h3>
+                  
+                  {/* Packages Table */}
+                  <div className="overflow-x-auto mb-6">
+                    <table className="w-full text-sm">
+                      <thead className="border-b border-gray-200">
+                        <tr>
+                          <th className="text-left py-2 font-semibold text-gray-700">Paket</th>
+                          <th className="text-center py-2 font-semibold text-gray-700">Aufwand</th>
+                          <th className="text-right py-2 font-semibold text-gray-700">Preis</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {service.packages.map((pkg, pkgIndex) => {
+                          const isSelected = selectedPackages[service.title]?.tier === pkg.tier;
+                          return (
+                            <tr
+                              key={pkgIndex}
+                              onClick={() => selectPackage(service.title, pkg.tier, pkg.price, pkg.effort, pkg.note)}
+                              className={`cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
+                                isSelected ? 'bg-blue-100 border-l-4 border-blue-600' : 'hover:border-l-4 hover:border-blue-300'
+                              }`}
+                            >
+                              <td className="py-3 px-2 relative">
+                                <div className="font-medium text-gray-900">{pkg.tier}</div>
+                                {pkg.note && (
+                                  <div className="text-xs text-blue-600 mt-1">{pkg.note}</div>
+                                )}
+                                {isSelected && (
+                                  <div className="absolute top-2 right-2 text-blue-600 font-bold text-lg">✓</div>
+                                )}
+                              </td>
+                              <td className="py-3 px-2 text-center text-gray-600">{pkg.effort}</td>
+                              <td className="py-3 px-2 text-right font-bold text-navy">{pkg.price}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
                   </div>
                   
                   {selectedPackages[service.title] && (
-                    <div className="text-sm text-green-600 font-medium mb-4 text-center">
-                      Selected: {selectedPackages[service.title].tier} - {selectedPackages[service.title].price}
+                    <div className="text-sm text-green-600 font-medium mb-4 text-center bg-green-50 p-2 rounded-lg">
+                      Ausgewählt: {selectedPackages[service.title].tier} - {selectedPackages[service.title].price}
                     </div>
                   )}
 
                   <div className="flex gap-3 justify-center">
                     <button
                       onClick={() => handleQuoteClick(service.title)}
-                      className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                      className="bg-navy text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
                     >
-                      Get Quote
+                      Offerte anfordern
                     </button>
-                    <button className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                      Book Consultation
+                    <button className="bg-white text-navy border-2 border-navy px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                      Beratung buchen
                     </button>
                   </div>
                 </div>
@@ -331,7 +412,7 @@ const Leistungen = () => {
           >
             ×
           </button>
-          <div className="text-lg font-semibold text-gray-900 mb-3">Selected Services</div>
+          <div className="text-lg font-semibold text-gray-900 mb-3">Ausgewählte Leistungen</div>
           <div className="max-h-48 overflow-y-auto mb-4">
             {Object.entries(selectedPackages).map(([service, details]) => (
               <div key={service} className="text-sm text-gray-700 mb-2 p-2 bg-gray-50 rounded-lg border-l-3 border-blue-600">
@@ -344,10 +425,10 @@ const Leistungen = () => {
             onClick={handleGlobalQuote}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold mb-2"
           >
-            Get Combined Quote
+            Kombinierte Offerte anfordern
           </button>
           <div className="text-xs text-gray-500 text-center">
-            Select packages from different services above
+            Wählen Sie Pakete aus verschiedenen Dienstleistungen oben aus
           </div>
         </div>
       )}
@@ -357,12 +438,12 @@ const Leistungen = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[2000] p-5 overflow-y-auto">
           <div className="bg-white rounded-xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-              {modalType === 'combined' ? 'Request Combined Quote' : `Request Quote - ${currentService}`}
+              {modalType === 'combined' ? 'Kombinierte Offerte anfordern' : `Offerte anfordern - ${currentService}`}
             </h3>
             
             {/* Selected Services Summary */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <div className="font-semibold text-blue-900 mb-2">Selected Services:</div>
+              <div className="font-semibold text-blue-900 mb-2">Ausgewählte Leistungen:</div>
               {Object.entries(formData.services).map(([service, details]) => (
                 <div key={service} className="text-sm text-gray-700 mb-1">
                   <strong>{service}</strong>: {details.tier} - {details.price}
@@ -373,7 +454,7 @@ const Leistungen = () => {
             {/* Contact Form */}
             <div className="space-y-4">
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Full Name *</label>
+                <label className="block font-semibold text-gray-700 mb-2">Vollständiger Name *</label>
                 <input
                   type="text"
                   value={formData.fullName}
@@ -384,7 +465,7 @@ const Leistungen = () => {
               </div>
               
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Email Address *</label>
+                <label className="block font-semibold text-gray-700 mb-2">E-Mail-Adresse *</label>
                 <input
                   type="email"
                   value={formData.email}
@@ -395,7 +476,7 @@ const Leistungen = () => {
               </div>
               
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Phone Number</label>
+                <label className="block font-semibold text-gray-700 mb-2">Telefonnummer</label>
                 <input
                   type="tel"
                   value={formData.phone}
@@ -405,7 +486,7 @@ const Leistungen = () => {
               </div>
               
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Company Name</label>
+                <label className="block font-semibold text-gray-700 mb-2">Firmenname</label>
                 <input
                   type="text"
                   value={formData.company}
@@ -415,11 +496,11 @@ const Leistungen = () => {
               </div>
               
               <div>
-                <label className="block font-semibold text-gray-700 mb-2">Additional Details</label>
+                <label className="block font-semibold text-gray-700 mb-2">Zusätzliche Details</label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  placeholder="Tell us more about your requirements, timeline, or any specific questions..."
+                  placeholder="Erzählen Sie uns mehr über Ihre Anforderungen, Zeitplan oder spezifische Fragen..."
                   className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none h-24 resize-vertical"
                 />
               </div>
@@ -429,13 +510,13 @@ const Leistungen = () => {
                   onClick={submitQuoteForm}
                   className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
                 >
-                  Send Quote Request
+                  Offerte-Anfrage senden
                 </button>
                 <button
                   onClick={() => setShowContactModal(false)}
                   className="bg-white text-gray-700 border-2 border-gray-300 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50"
                 >
-                  Cancel
+                  Abbrechen
                 </button>
               </div>
             </div>
@@ -453,11 +534,11 @@ const Leistungen = () => {
               </svg>
             </div>
             
-            <h3 className="text-2xl font-bold text-green-600 mb-4">Thank You!</h3>
+            <h3 className="text-2xl font-bold text-green-600 mb-4">Vielen Dank!</h3>
             
             <p className="text-gray-700 mb-6">
-              Your quote request has been submitted successfully!<br />
-              We've received your inquiry and will review your requirements carefully.
+              Ihre Offerte-Anfrage wurde erfolgreich übermittelt!<br />
+              Wir haben Ihre Anfrage erhalten und werden Ihre Anforderungen sorgfältig prüfen.
             </p>
             
             <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-6 font-mono font-semibold text-green-800">
@@ -465,12 +546,12 @@ const Leistungen = () => {
             </div>
             
             <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
-              <div className="font-semibold text-gray-700 mb-3">What happens next:</div>
+              <div className="font-semibold text-gray-700 mb-3">Wie geht es weiter:</div>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Our team will review your requirements within 2 hours</li>
-                <li>• We'll prepare a detailed quote tailored to your needs</li>
-                <li>• You'll receive our response within 24 hours via email</li>
-                <li>• We'll schedule a consultation call if needed</li>
+                <li>• Unser Team prüft Ihre Anforderungen innerhalb von 2 Stunden</li>
+                <li>• Wir erstellen eine detaillierte, auf Ihre Bedürfnisse zugeschnittene Offerte</li>
+                <li>• Sie erhalten unsere Antwort innerhalb von 24 Stunden per E-Mail</li>
+                <li>• Bei Bedarf vereinbaren wir einen Beratungstermin</li>
               </ul>
             </div>
             
@@ -479,7 +560,7 @@ const Leistungen = () => {
                 onClick={() => setShowThankYouModal(false)}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
               >
-                Continue Browsing
+                Weiter durchsuchen
               </button>
               <button
                 onClick={() => {
@@ -488,7 +569,7 @@ const Leistungen = () => {
                 }}
                 className="bg-white text-gray-700 border-2 border-gray-300 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50"
               >
-                Request Another Quote
+                Weitere Offerte anfordern
               </button>
             </div>
           </div>
@@ -506,7 +587,7 @@ const Leistungen = () => {
                 onClick={() => setShowMessageModal(false)}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
               >
-                Got it!
+                Verstanden!
               </button>
             </div>
           </div>
@@ -517,13 +598,13 @@ const Leistungen = () => {
       <section className="py-20 bg-blue-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Interested in Our Services?
+            Interessiert an unseren Dienstleistungen?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Schedule your free consultation now and let us find the best solution for your business together.
+            Vereinbaren Sie jetzt Ihre kostenlose Beratung und lassen Sie uns gemeinsam die beste Lösung für Ihr Unternehmen finden.
           </p>
           <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
-            Book Free Consultation
+            Kostenlose Beratung buchen
           </button>
         </div>
       </section>

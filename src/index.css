@@ -36,6 +36,9 @@ All colors MUST be HSL.
 
     --accent: 210 71% 43%; /* #1e73be Accent blue for icons & highlights */
     --accent-foreground: 0 0% 100%; /* White text on accent */
+    
+    /* Navy color for text and buttons */
+    --navy: 236 85% 30%; /* #0c128a Navy blue for text and buttons */
 
     /* Neutral colors */
     --muted: 220 20% 88%; /* Light gray for muted backgrounds */
