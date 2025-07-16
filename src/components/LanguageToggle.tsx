@@ -6,26 +6,19 @@ import { Globe } from 'lucide-react';
 const LanguageToggle = () => {
   const { language, setLanguage } = useLanguage();
 
+  const toggleLanguage = () => {
+    setLanguage(language === 'de' ? 'en' : 'de');
+  };
+
   return (
-    <div className="flex items-center space-x-1">
-      <Globe className="w-4 h-4 text-gray-600" />
-      <Button
-        variant={language === 'de' ? 'default' : 'ghost'}
-        size="sm"
-        onClick={() => setLanguage('de')}
-        className="h-8 px-2 text-xs"
-      >
-        DE
-      </Button>
-      <Button
-        variant={language === 'en' ? 'default' : 'ghost'}
-        size="sm"
-        onClick={() => setLanguage('en')}
-        className="h-8 px-2 text-xs"
-      >
-        EN
-      </Button>
-    </div>
+    <Button
+      variant="ghost"
+      size="sm"
+      onClick={toggleLanguage}
+      className="h-8 px-3 text-sm font-medium text-navy hover:bg-navy/10"
+    >
+      {language === 'de' ? 'EN' : 'DE'}
+    </Button>
   );
 };
 

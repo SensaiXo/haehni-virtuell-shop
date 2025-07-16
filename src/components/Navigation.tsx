@@ -60,8 +60,10 @@ const Navigation = () => {
     <nav className="bg-primary sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex justify-between items-center h-[68px]">
-          {/* Logo removed - now in hero section */}
-          <div className="flex-shrink-0"></div>
+          {/* Logo/Brand */}
+          <div className="flex-shrink-0">
+            <span className="text-xl font-bold text-navy">bdlh.ch</span>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
@@ -118,16 +120,10 @@ const Navigation = () => {
           </div>
 
           {/* Contact Info, Language Toggle & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <span className="text-base text-navy font-medium">bdlh.ch</span>
-            <Button asChild variant="outline" size="sm" className="border-navy text-navy hover:bg-navy hover:text-white">
-              <Link to="/kontakt">
-                <Mail className="w-4 h-4 mr-2" />
-                Email
-              </Link>
-            </Button>
+          <div className="hidden lg:flex items-center space-x-6">
+            <span className="text-2xl cursor-pointer" onClick={() => window.location.href = '/kontakt'}>📧</span>
             <LanguageToggle />
-            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-base font-semibold px-6 py-3 rounded-lg">
+            <Button asChild className="bg-navy hover:bg-navy/80 text-white text-base font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
                 {t('cta.booking')}
               </a>
@@ -203,16 +199,10 @@ const Navigation = () => {
               ))}
               <div className="px-3 py-4 border-t border-primary-foreground/20 mt-4">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-base text-primary-foreground font-medium">bdlh.ch</span>
+                  <span className="text-2xl cursor-pointer" onClick={() => window.location.href = '/kontakt'}>📧</span>
                   <LanguageToggle />
                 </div>
-                <Button asChild variant="outline" size="sm" className="w-full mb-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/kontakt" onClick={() => setIsOpen(false)}>
-                    <Mail className="w-4 h-4 mr-2" />
-                    Email
-                  </Link>
-                </Button>
-                <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-lg">
+                <Button asChild className="w-full bg-navy hover:bg-navy/80 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg">
                   <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     {t('cta.booking')}
                   </a>
