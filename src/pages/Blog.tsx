@@ -24,7 +24,7 @@ const Blog = () => {
     <Layout>
       <PageHeader 
         title="Blog & Insights"
-        subtitle="Praktische Tipps, Einblicke und Erfahrungen rund um virtuelle Assistenz, Digitalisierung und effizientes Arbeiten für Schweizer KMU."
+        subtitle="Praktische Tipps und Einblicke für Schweizer KMU."
       />
       
       <div className="min-h-screen py-16 px-4 bg-secondary">
