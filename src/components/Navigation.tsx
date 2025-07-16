@@ -65,17 +65,17 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-4">
               {navItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.dropdown ? (
                     <div className="relative">
                       <button
                         onClick={() => handleDropdownToggle(item.name)}
-                        className={`px-4 py-2 text-base font-medium transition-all duration-300 flex items-center space-x-1 whitespace-nowrap ${
+                        className={`px-3 py-2 text-base font-medium transition-all duration-300 flex items-center space-x-1 whitespace-nowrap ${
                           isDropdownActive(item.dropdown)
-                            ? 'text-primary-foreground border-b-2 border-accent'
-                            : 'text-primary-foreground hover:text-accent'
+                            ? 'text-navy border-b-2 border-accent'
+                            : 'text-navy hover:text-accent'
                         }`}
                       >
                         <span>{item.name}</span>
@@ -103,10 +103,10 @@ const Navigation = () => {
                   ) : (
                     <Link
                       to={item.path}
-                      className={`px-4 py-2 text-base font-medium transition-all duration-300 whitespace-nowrap relative ${
+                      className={`px-3 py-2 text-base font-medium transition-all duration-300 whitespace-nowrap relative ${
                         isActive(item.path)
-                          ? 'text-primary-foreground border-b-2 border-accent'
-                          : 'text-primary-foreground hover:text-accent'
+                          ? 'text-navy border-b-2 border-accent'
+                          : 'text-navy hover:text-accent'
                       }`}
                     >
                       {item.name}
@@ -118,11 +118,14 @@ const Navigation = () => {
           </div>
 
           {/* Contact Info, Language Toggle & CTA */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <div className="flex items-center space-x-2 text-base text-primary-foreground">
-              <Mail className="w-4 h-4" />
-              <span>info@bdlh.ch</span>
-            </div>
+          <div className="hidden lg:flex items-center space-x-4">
+            <span className="text-base text-navy font-medium">bdlh.ch</span>
+            <Button asChild variant="outline" size="sm" className="border-navy text-navy hover:bg-navy hover:text-white">
+              <Link to="/kontakt">
+                <Mail className="w-4 h-4 mr-2" />
+                Email
+              </Link>
+            </Button>
             <LanguageToggle />
             <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground text-base font-semibold px-6 py-3 rounded-lg">
               <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
@@ -200,12 +203,15 @@ const Navigation = () => {
               ))}
               <div className="px-3 py-4 border-t border-primary-foreground/20 mt-4">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2 text-base text-primary-foreground">
-                    <Mail className="w-4 h-4" />
-                    <span>info@bdlh.ch</span>
-                  </div>
+                  <span className="text-base text-primary-foreground font-medium">bdlh.ch</span>
                   <LanguageToggle />
                 </div>
+                <Button asChild variant="outline" size="sm" className="w-full mb-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                  <Link to="/kontakt" onClick={() => setIsOpen(false)}>
+                    <Mail className="w-4 h-4 mr-2" />
+                    Email
+                  </Link>
+                </Button>
                 <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-lg">
                   <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     {t('cta.booking')}

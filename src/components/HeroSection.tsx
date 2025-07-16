@@ -33,7 +33,7 @@ const HeroSection = () => {
                 <img 
                   src="/lovable-uploads/237ca005-2004-4d97-8868-42de03d7be44.png" 
                   alt="Laura Hähni Bürodienstleistungen Logo" 
-                  className="h-24 w-auto"
+                  className="h-36 w-auto"
                 />
               </motion.div>
               
