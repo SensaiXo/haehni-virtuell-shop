@@ -57,7 +57,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-primary sticky top-0 z-50">
+    <nav className="bg-white sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex justify-between items-center h-[68px]">
           {/* Logo/Brand */}
@@ -134,7 +134,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary-foreground hover:bg-primary-foreground/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
+              className="inline-flex items-center justify-center p-2 rounded-md text-navy hover:bg-navy/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -144,7 +144,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-4 pt-2 pb-3 space-y-1 bg-primary border-t border-primary-foreground/20">
+            <div className="px-4 pt-2 pb-3 space-y-1 bg-white border-t border-navy/20">
               {navItems.map((item) => (
                 <div key={item.name}>
                   {item.dropdown ? (
@@ -154,7 +154,7 @@ const Navigation = () => {
                         className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center justify-between ${
                           isDropdownActive(item.dropdown)
                             ? 'bg-accent/10 text-accent'
-                            : 'text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent'
+                            : 'text-navy hover:bg-navy/10 hover:text-accent'
                         }`}
                       >
                         <span>{item.name}</span>
@@ -173,7 +173,7 @@ const Navigation = () => {
                               className={`block px-3 py-2 rounded-md text-sm transition-colors duration-200 ${
                                 isActive(subItem.path)
                                   ? 'bg-accent/10 text-accent'
-                                  : 'text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-accent'
+                                  : 'text-navy/80 hover:bg-navy/10 hover:text-accent'
                               }`}
                             >
                               {subItem.name}
@@ -189,7 +189,7 @@ const Navigation = () => {
                       className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                         isActive(item.path)
                           ? 'bg-accent/10 text-accent'
-                          : 'text-primary-foreground hover:bg-primary-foreground/10 hover:text-accent'
+                          : 'text-navy hover:bg-navy/10 hover:text-accent'
                       }`}
                     >
                       {item.name}
@@ -197,9 +197,9 @@ const Navigation = () => {
                   )}
                 </div>
               ))}
-              <div className="px-3 py-4 border-t border-primary-foreground/20 mt-4">
+              <div className="px-3 py-4 border-t border-navy/20 mt-4">
                 <div className="flex items-center justify-between mb-4">
-                  <Mail className="w-6 h-6 text-primary-foreground cursor-pointer hover:text-primary-foreground/70 transition-colors" onClick={() => window.location.href = '/kontakt'} />
+                  <Mail className="w-6 h-6 text-navy cursor-pointer hover:text-navy/70 transition-colors" onClick={() => window.location.href = '/kontakt'} />
                   <LanguageToggle />
                 </div>
                 <Button asChild className="w-full bg-navy hover:bg-navy/80 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg">
