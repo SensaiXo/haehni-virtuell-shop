@@ -64,7 +64,7 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center p-3">
               <img 
-                src="/lovable-uploads/09cc67d5-a2fd-4e02-9403-a4dbd8ed55fb.png" 
+                src="/lovable-uploads/237ca005-2004-4d97-8868-42de03d7be44.png" 
                 alt="BÜRODIENSTLEISTUNGEN Hähni Logo" 
                 className="h-10 w-auto"
               />
