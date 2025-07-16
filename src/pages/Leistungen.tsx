@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
+import PageHeader from '@/components/PageHeader';
 import { Calculator, Users, HeadphonesIcon, Search, FileText, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -281,33 +282,10 @@ const Leistungen = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            Unsere Leistungen
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Modulare Dienstleistungspakete für Schweizer KMU. Wir kümmern uns um Ihre Administration, damit Sie sich auf Ihr Geschäft konzentrieren können.
-          </p>
-          
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
-              <span className="font-semibold text-blue-900">Modern & Digital</span>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
-              <span className="font-semibold text-blue-900">Vertraulich & Sicher</span>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
-              <span className="font-semibold text-blue-900">Frauenfeld, Thurgau</span>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200">
-              <span className="font-semibold text-blue-900">Für Schweizer KMU</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeader 
+        title="Unsere Leistungen"
+        subtitle="Modulare Dienstleistungspakete für Schweizer KMU. Wir kümmern uns um Ihre Administration, damit Sie sich auf Ihr Geschäft konzentrieren können."
+      />
 
       {/* Services Grid */}
       <section className="py-20">

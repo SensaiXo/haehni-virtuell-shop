@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Clock, Users, Shield, Phone, Calculator, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
+import PageHeader from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQItem = ({ question, answer, icon: Icon, isOpen, onToggle }) => (
@@ -113,15 +114,13 @@ const FAQ = () => {
         })}
       </script>
       
+      <PageHeader 
+        title={t('faq.title')}
+        subtitle={t('faq.subtitle')}
+      />
+      
       <div className="min-h-screen bg-gradient-to-b from-background to-warm-beige">
         <div className="container mx-auto px-4 py-16 max-w-4xl">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4 text-foreground">{t('faq.title')}</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('faq.subtitle')}
-            </p>
-          </div>
 
           {/* FAQ Items */}
           <div className="space-y-4">

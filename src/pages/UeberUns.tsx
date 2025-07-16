@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Layout from '@/components/Layout';
+import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GraduationCap, Building2, Users, TrendingUp, Heart, Mail } from 'lucide-react';
@@ -33,17 +34,10 @@ const UeberUns = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Über uns
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Willkommen bei Bürodienstleistungen Hähni – Lernen Sie die Person hinter dem Unternehmen kennen
-          </p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Über uns"
+        subtitle="Willkommen bei Bürodienstleistungen Hähni – Lernen Sie die Person hinter dem Unternehmen kennen"
+      />
 
       {/* Main Content */}
       <section ref={mainSectionRef} className="py-16 opacity-0 translate-y-4 transition-all duration-700">

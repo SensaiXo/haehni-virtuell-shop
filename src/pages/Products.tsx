@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
+import PageHeader from '@/components/PageHeader';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Calculator, Users, Headphones, Search, FileText, TrendingUp, CheckCircle, Star, Crown, Shield, Zap, ChevronDown, ChevronUp, ShoppingCart, X, Plus, Minus } from 'lucide-react';
@@ -320,20 +321,12 @@ const Products = () => {
         </button>
       )}
 
+      <PageHeader 
+        title={language === 'de' ? 'Virtuelle Assistenz-Pakete für Schweizer Unternehmen' : 'Virtual Assistant Packages for Swiss Businesses'}
+        subtitle={language === 'de' ? 'Alle Services werden 100% remote von Laura Hähni geliefert, ansässig in Frauenfeld, Schweiz. Keine Vor-Ort-Besuche – nur effizienter, flexibler Support, wo immer Sie sind.' : 'All services are delivered 100% remotely by Laura Hähni, based in Frauenfeld, Switzerland. No on-site visits – just efficient, flexible support wherever you are.'}
+      />
+      
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                {language === 'de' ? 'Virtuelle Assistenz-Pakete für Schweizer Unternehmen' : 'Virtual Assistant Packages for Swiss Businesses'}
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                {language === 'de' ? 'Alle Services werden 100% remote von Laura Hähni geliefert, ansässig in Frauenfeld, Schweiz. Keine Vor-Ort-Besuche – nur effizienter, flexibler Support, wo immer Sie sind.' : 'All services are delivered 100% remotely by Laura Hähni, based in Frauenfeld, Switzerland. No on-site visits – just efficient, flexible support wherever you are.'}
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Package Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

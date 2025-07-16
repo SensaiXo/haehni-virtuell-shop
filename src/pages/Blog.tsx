@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import PageHeader from '../components/PageHeader';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Link } from 'react-router-dom';
@@ -21,18 +22,13 @@ const blogPosts = [
 const Blog = () => {
   return (
     <Layout>
+      <PageHeader 
+        title="Blog & Insights"
+        subtitle="Praktische Tipps, Einblicke und Erfahrungen rund um virtuelle Assistenz, Digitalisierung und effizientes Arbeiten für Schweizer KMU."
+      />
+      
       <div className="min-h-screen py-16 px-4 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Blog & Insights
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Praktische Tipps, Einblicke und Erfahrungen rund um virtuelle Assistenz, 
-              Digitalisierung und effizientes Arbeiten für Schweizer KMU.
-            </p>
-          </div>
 
           {/* Blog Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

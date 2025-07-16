@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Layout from '@/components/Layout';
+import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, Clock, BookOpen, ExternalLink, Mail, Phone } from 'lucide-react';
@@ -65,17 +66,10 @@ const OnlineBuchung = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Online-Buchung
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Buchen Sie Ihr kostenloses Erstgespräch oder entdecken Sie empfehlenswerte Online-Kurse
-          </p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Online-Buchung"
+        subtitle="Buchen Sie Ihr kostenloses Erstgespräch oder entdecken Sie empfehlenswerte Online-Kurse"
+      />
 
       {/* Booking Section */}
       <section className="py-16">
