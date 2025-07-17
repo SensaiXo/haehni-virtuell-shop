@@ -16,6 +16,36 @@ const blogPosts = [
     readTime: "8 Min.",
     image: "/lovable-uploads/554e6c76-d11a-4ec9-88ee-f28460a3b152.png",
     slug: "kraft-der-virtuellen-assistenz"
+  },
+  {
+    id: 2,
+    title: "AI in der Buchhaltung Schweiz: Zukunftstrends für KMU im Jahr 2025",
+    excerpt: "Die Buchhaltung in der Schweiz erlebt einen tiefgreifenden Wandel. Gerade für Schweizer KMU eröffnet die Digitalisierung neue Wege, um mit schlanken Prozessen und smarten Tools die Buchhaltung zu vereinfachen.",
+    author: "Laura Hähni",
+    date: "15. Juli 2025",
+    readTime: "12 Min.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    slug: "ai-buchhaltung-schweiz-2025"
+  },
+  {
+    id: 3,
+    title: "Mein Weg zu neuen AI-Partnern: Persönliche Erfahrungen mit virtueller Assistenz & AI-Influencer",
+    excerpt: "Es gibt diese Momente im Unternehmertum, in denen du spürst: 'Jetzt ist Zeit für den nächsten Schritt.' Für mich war genau dieser Moment gekommen, als ich merkte, wie sehr KI meine tägliche Arbeit bereichern kann.",
+    author: "Laura Hähni",
+    date: "17. Juli 2025",
+    readTime: "10 Min.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    slug: "ai-partner-erfahrungen-schweiz"
+  },
+  {
+    id: 4,
+    title: "Digitale Transformation für Schweizer KMU: Praktische Schritte zum Erfolg",
+    excerpt: "Die digitale Transformation muss nicht kompliziert sein. Als virtuelle Assistentin zeige ich Ihnen, wie Sie Schritt für Schritt Ihre Prozesse digitalisieren und dabei Zeit und Kosten sparen können.",
+    author: "Laura Hähni",
+    date: "19. Juli 2025",
+    readTime: "9 Min.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    slug: "digitale-transformation-kmu-schweiz"
   }
 ];
 
@@ -38,6 +68,7 @@ const Blog = () => {
                   <img 
                     src={post.image} 
                     alt={post.title}
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
