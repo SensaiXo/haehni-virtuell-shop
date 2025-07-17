@@ -4,7 +4,6 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { Calculator, Users, HeadphonesIcon, Search, FileText, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 interface SelectedPackage {
   tier: string;
@@ -32,6 +31,7 @@ const Leistungen = () => {
   const [currentService, setCurrentService] = useState('');
   const [messageTitle, setMessageTitle] = useState('');
   const [messageText, setMessageText] = useState('');
+  const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: '',
     email: '',
@@ -281,6 +281,28 @@ const Leistungen = () => {
 
   const selectedCount = Object.keys(selectedPackages).length;
 
+  // Helper function to determine which row a service is in
+  const getRowIndex = (serviceIndex: number) => {
+    // For lg screens (3 columns): row = floor(index / 3)
+    // For md screens (2 columns): row = floor(index / 2)
+    // For sm screens (1 column): row = index
+    return Math.floor(serviceIndex / 3); // Using lg breakpoint as default
+  };
+
+  // Toggle row expansion
+  const toggleRowExpansion = (serviceIndex: number) => {
+    const rowIndex = getRowIndex(serviceIndex);
+    const newExpandedRows = new Set(expandedRows);
+    
+    if (newExpandedRows.has(rowIndex)) {
+      newExpandedRows.delete(rowIndex);
+    } else {
+      newExpandedRows.add(rowIndex);
+    }
+    
+    setExpandedRows(newExpandedRows);
+  };
+
   return (
     <Layout>
       <PageHeader 
@@ -318,71 +340,80 @@ const Leistungen = () => {
 
                 {/* Pricing Section */}
                 <div className="border-t border-gray-200 pt-6">
-                  <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="pricing">
-                      <AccordionTrigger className="text-lg font-semibold text-navy justify-center">
-                        Pakete & Preise
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        {/* Packages Table */}
-                        <div className="overflow-x-auto mb-6">
-                          <table className="w-full text-sm">
-                            <thead className="border-b border-gray-200">
-                              <tr>
-                                <th className="text-left py-2 font-semibold text-gray-700">Paket</th>
-                                <th className="text-center py-2 font-semibold text-gray-700">Aufwand</th>
-                                <th className="text-right py-2 font-semibold text-gray-700">Preis</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {service.packages.map((pkg, pkgIndex) => {
-                                const isSelected = selectedPackages[service.title]?.tier === pkg.tier;
-                                return (
-                                  <tr
-                                    key={pkgIndex}
-                                    onClick={() => selectPackage(service.title, pkg.tier, pkg.price, pkg.effort, pkg.note)}
-                                    className={`cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
-                                      isSelected ? 'bg-blue-100 border-l-4 border-blue-600' : 'hover:border-l-4 hover:border-blue-300'
-                                    }`}
-                                  >
-                                    <td className="py-3 px-2 relative">
-                                      <div className="font-medium text-gray-900">{pkg.tier}</div>
-                                      {pkg.note && (
-                                        <div className="text-xs text-blue-600 mt-1">{pkg.note}</div>
-                                      )}
-                                      {isSelected && (
-                                        <div className="absolute top-2 right-2 text-blue-600 font-bold text-lg">✓</div>
-                                      )}
-                                    </td>
-                                    <td className="py-3 px-2 text-center text-gray-600">{pkg.effort}</td>
-                                    <td className="py-3 px-2 text-right font-bold text-navy">{pkg.price}</td>
-                                  </tr>
-                                );
-                              })}
-                            </tbody>
-                          </table>
+                  <button
+                    onClick={() => toggleRowExpansion(index)}
+                    className="w-full text-lg font-semibold text-navy justify-center flex items-center gap-2 hover:text-blue-700 transition-colors"
+                  >
+                    Pakete & Preise
+                    <div className={`transform transition-transform duration-200 ${
+                      expandedRows.has(getRowIndex(index)) ? 'rotate-180' : ''
+                    }`}>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </button>
+                  
+                  {expandedRows.has(getRowIndex(index)) && (
+                    <div className="mt-4 animate-fade-in">
+                      {/* Packages Table */}
+                      <div className="overflow-x-auto mb-6">
+                        <table className="w-full text-sm">
+                          <thead className="border-b border-gray-200">
+                            <tr>
+                              <th className="text-left py-2 font-semibold text-gray-700">Paket</th>
+                              <th className="text-center py-2 font-semibold text-gray-700">Aufwand</th>
+                              <th className="text-right py-2 font-semibold text-gray-700">Preis</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {service.packages.map((pkg, pkgIndex) => {
+                              const isSelected = selectedPackages[service.title]?.tier === pkg.tier;
+                              return (
+                                <tr
+                                  key={pkgIndex}
+                                  onClick={() => selectPackage(service.title, pkg.tier, pkg.price, pkg.effort, pkg.note)}
+                                  className={`cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
+                                    isSelected ? 'bg-blue-100 border-l-4 border-blue-600' : 'hover:border-l-4 hover:border-blue-300'
+                                  }`}
+                                >
+                                  <td className="py-3 px-2 relative">
+                                    <div className="font-medium text-gray-900">{pkg.tier}</div>
+                                    {pkg.note && (
+                                      <div className="text-xs text-blue-600 mt-1">{pkg.note}</div>
+                                    )}
+                                    {isSelected && (
+                                      <div className="absolute top-2 right-2 text-blue-600 font-bold text-lg">✓</div>
+                                    )}
+                                  </td>
+                                  <td className="py-3 px-2 text-center text-gray-600">{pkg.effort}</td>
+                                  <td className="py-3 px-2 text-right font-bold text-navy">{pkg.price}</td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                      
+                      {selectedPackages[service.title] && (
+                        <div className="text-sm text-green-600 font-medium mb-4 text-center bg-green-50 p-2 rounded-lg">
+                          Ausgewählt: {selectedPackages[service.title].tier} - {selectedPackages[service.title].price}
                         </div>
-                        
-                        {selectedPackages[service.title] && (
-                          <div className="text-sm text-green-600 font-medium mb-4 text-center bg-green-50 p-2 rounded-lg">
-                            Ausgewählt: {selectedPackages[service.title].tier} - {selectedPackages[service.title].price}
-                          </div>
-                        )}
+                      )}
 
-                        <div className="flex gap-3 justify-center">
-                          <button
-                            onClick={() => handleQuoteClick(service.title)}
-                            className="bg-navy text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
-                          >
-                            Offerte anfordern
-                          </button>
-                          <button className="bg-white text-navy border-2 border-navy px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                            Beratung buchen
-                          </button>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
+                      <div className="flex gap-3 justify-center">
+                        <button
+                          onClick={() => handleQuoteClick(service.title)}
+                          className="bg-navy text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
+                        >
+                          Offerte anfordern
+                        </button>
+                        <button className="bg-white text-navy border-2 border-navy px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                          Beratung buchen
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
