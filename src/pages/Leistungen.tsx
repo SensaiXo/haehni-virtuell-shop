@@ -4,6 +4,7 @@ import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
 import { Calculator, Users, HeadphonesIcon, Search, FileText, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 interface SelectedPackage {
   tier: string;
@@ -317,64 +318,71 @@ const Leistungen = () => {
 
                 {/* Pricing Section */}
                 <div className="border-t border-gray-200 pt-6">
-                  <h3 className="text-lg font-semibold text-navy mb-4 text-center">Pakete</h3>
-                  
-                  {/* Packages Table */}
-                  <div className="overflow-x-auto mb-6">
-                    <table className="w-full text-sm">
-                      <thead className="border-b border-gray-200">
-                        <tr>
-                          <th className="text-left py-2 font-semibold text-gray-700">Paket</th>
-                          <th className="text-center py-2 font-semibold text-gray-700">Aufwand</th>
-                          <th className="text-right py-2 font-semibold text-gray-700">Preis</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {service.packages.map((pkg, pkgIndex) => {
-                          const isSelected = selectedPackages[service.title]?.tier === pkg.tier;
-                          return (
-                            <tr
-                              key={pkgIndex}
-                              onClick={() => selectPackage(service.title, pkg.tier, pkg.price, pkg.effort, pkg.note)}
-                              className={`cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
-                                isSelected ? 'bg-blue-100 border-l-4 border-blue-600' : 'hover:border-l-4 hover:border-blue-300'
-                              }`}
-                            >
-                              <td className="py-3 px-2 relative">
-                                <div className="font-medium text-gray-900">{pkg.tier}</div>
-                                {pkg.note && (
-                                  <div className="text-xs text-blue-600 mt-1">{pkg.note}</div>
-                                )}
-                                {isSelected && (
-                                  <div className="absolute top-2 right-2 text-blue-600 font-bold text-lg">✓</div>
-                                )}
-                              </td>
-                              <td className="py-3 px-2 text-center text-gray-600">{pkg.effort}</td>
-                              <td className="py-3 px-2 text-right font-bold text-navy">{pkg.price}</td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  {selectedPackages[service.title] && (
-                    <div className="text-sm text-green-600 font-medium mb-4 text-center bg-green-50 p-2 rounded-lg">
-                      Ausgewählt: {selectedPackages[service.title].tier} - {selectedPackages[service.title].price}
-                    </div>
-                  )}
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="pricing">
+                      <AccordionTrigger className="text-lg font-semibold text-navy justify-center">
+                        Pakete & Preise
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        {/* Packages Table */}
+                        <div className="overflow-x-auto mb-6">
+                          <table className="w-full text-sm">
+                            <thead className="border-b border-gray-200">
+                              <tr>
+                                <th className="text-left py-2 font-semibold text-gray-700">Paket</th>
+                                <th className="text-center py-2 font-semibold text-gray-700">Aufwand</th>
+                                <th className="text-right py-2 font-semibold text-gray-700">Preis</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {service.packages.map((pkg, pkgIndex) => {
+                                const isSelected = selectedPackages[service.title]?.tier === pkg.tier;
+                                return (
+                                  <tr
+                                    key={pkgIndex}
+                                    onClick={() => selectPackage(service.title, pkg.tier, pkg.price, pkg.effort, pkg.note)}
+                                    className={`cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
+                                      isSelected ? 'bg-blue-100 border-l-4 border-blue-600' : 'hover:border-l-4 hover:border-blue-300'
+                                    }`}
+                                  >
+                                    <td className="py-3 px-2 relative">
+                                      <div className="font-medium text-gray-900">{pkg.tier}</div>
+                                      {pkg.note && (
+                                        <div className="text-xs text-blue-600 mt-1">{pkg.note}</div>
+                                      )}
+                                      {isSelected && (
+                                        <div className="absolute top-2 right-2 text-blue-600 font-bold text-lg">✓</div>
+                                      )}
+                                    </td>
+                                    <td className="py-3 px-2 text-center text-gray-600">{pkg.effort}</td>
+                                    <td className="py-3 px-2 text-right font-bold text-navy">{pkg.price}</td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                        {selectedPackages[service.title] && (
+                          <div className="text-sm text-green-600 font-medium mb-4 text-center bg-green-50 p-2 rounded-lg">
+                            Ausgewählt: {selectedPackages[service.title].tier} - {selectedPackages[service.title].price}
+                          </div>
+                        )}
 
-                  <div className="flex gap-3 justify-center">
-                    <button
-                      onClick={() => handleQuoteClick(service.title)}
-                      className="bg-navy text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
-                    >
-                      Offerte anfordern
-                    </button>
-                    <button className="bg-white text-navy border-2 border-navy px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                      Beratung buchen
-                    </button>
-                  </div>
+                        <div className="flex gap-3 justify-center">
+                          <button
+                            onClick={() => handleQuoteClick(service.title)}
+                            className="bg-navy text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
+                          >
+                            Offerte anfordern
+                          </button>
+                          <button className="bg-white text-navy border-2 border-navy px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                            Beratung buchen
+                          </button>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
               </div>
             ))}
