@@ -37,7 +37,7 @@ const UeberUns = () => {
       <PageHeader 
         title="Über uns"
         subtitle="Lernen Sie die Person hinter dem Unternehmen kennen."
-        backgroundImage="/lovable-uploads/fb5066b1-a211-4e4f-8f70-571e1900d53c.png"
+        backgroundImage="/lovable-uploads/5b0d7e19-7ad1-4277-a038-198acddd3197.png"
       />
 
       {/* Main Content */}

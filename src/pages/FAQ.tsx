@@ -117,7 +117,7 @@ const FAQ = () => {
       <PageHeader 
         title={t('faq.title')}
         subtitle={t('faq.subtitle')}
-        backgroundImage="/lovable-uploads/a5166e84-ea85-42bb-9286-6e6184782f3e.png"
+        backgroundImage="/lovable-uploads/200c9247-b3a6-4bfc-b27f-fc97b5e79403.png"
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background to-warm-beige">

@@ -55,7 +55,7 @@ const Blog = () => {
       <PageHeader 
         title="Blog & Insights"
         subtitle="Praktische Tipps und Einblicke für Schweizer KMU."
-        backgroundImage="/lovable-uploads/8238baee-ce00-418d-973c-40a7114b5ff5.png"
+        backgroundImage="/lovable-uploads/93946cc6-77c7-4bed-a4b5-c166c2badadd.png"
       />
       
       <div className="min-h-screen py-16 px-4 bg-secondary">

@@ -42,7 +42,7 @@ const Kontakt = () => {
       <PageHeader 
         title={t('contact.title')}
         subtitle={t('contact.subtitle')}
-        backgroundImage="/lovable-uploads/0b376ae3-7d8c-4ba5-9b8a-41126b15262c.png"
+        backgroundImage="/lovable-uploads/23e8ae3f-344e-482e-a335-07505e623a49.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-background to-secondary/10">
         <div className="container mx-auto px-4 py-16">
