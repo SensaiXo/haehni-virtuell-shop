@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import { Calculator, Users, HeadphonesIcon, Search, FileText, TrendingUp } from 'lucide-react';
+import { Calculator, Users, HeadphonesIcon, Search, FileText, TrendingUp, Clock, Briefcase, List } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SelectedPackage {
@@ -310,6 +310,55 @@ const Leistungen = () => {
         subtitle="Modulare Dienstleistungspakete für Schweizer KMU."
         backgroundImage="/lovable-uploads/845a28fa-4440-49ec-ba65-67e05a5fad14.png"
       />
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Ihre Vorteile mit<br />Bürodienstleistungen Hähni
+            </h2>
+            <p className="text-xl text-blue-600 font-semibold italic">
+              Mehr als Büroarbeiten
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Flexibilität */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <Clock className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Flexibilität</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Mit meiner <strong>15-minütigen Abrechnung</strong> bleiben Sie maximal flexibel und zahlen nur das, was Sie wirklich in Anspruch nehmen. So behalten Sie stets die volle Kontrolle über Ihr Budget und Ihre Zeit.
+              </p>
+            </div>
+            
+            {/* Grosses Portfolio */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <Briefcase className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Grosses Portfolio</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Ob Buchhaltung, Schreibarbeiten oder <strong>individuelle Wünsche</strong> – ich bin mit Leidenschaft und Tatkraft zur Stelle, um Ihren Geschäftsalltag zu entlasten und neue Freiräume zu schaffen.
+              </p>
+            </div>
+            
+            {/* Pauschalpakete */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <List className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Pauschalpakete</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Sichern Sie sich ein <strong>festes monatliches Zeitkontingent</strong> zu einem transparenten, vorher vereinbarten Preis. So geniessen Sie Planungssicherheit und können sich ganz auf Ihr Kerngeschäft konzentrieren.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Grid */}
       <section className="py-20">
