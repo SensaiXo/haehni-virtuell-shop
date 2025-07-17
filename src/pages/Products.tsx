@@ -324,6 +324,7 @@ const Products = () => {
       <PageHeader 
         title={language === 'de' ? 'Preis-Pakete' : 'Price Packages'}
         subtitle={language === 'de' ? 'Professionelle virtuelle Assistenz-Services von Laura Hähni aus Frauenfeld.' : 'Professional virtual assistant services from Laura Hähni based in Frauenfeld.'}
+        backgroundImage="/lovable-uploads/e70ee35a-f511-48a4-8021-698dbe8afeae.png"
       />
       
       <div className="min-h-screen bg-gray-50">

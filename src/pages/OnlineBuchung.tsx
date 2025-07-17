@@ -69,6 +69,7 @@ const OnlineBuchung = () => {
       <PageHeader 
         title="Online-Buchung"
         subtitle="Kostenloses Erstgespräch buchen oder Online-Kurse entdecken."
+        backgroundImage="/lovable-uploads/de242d34-5caa-4c20-94f2-44525fb50897.png"
       />
 
       {/* Booking Section */}

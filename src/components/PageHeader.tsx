@@ -4,16 +4,28 @@ interface PageHeaderProps {
   title: string;
   subtitle?: string;
   showTrustBadges?: boolean;
+  backgroundImage?: string;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ 
   title, 
   subtitle, 
-  showTrustBadges = true 
+  showTrustBadges = true,
+  backgroundImage 
 }) => {
   return (
-    <section className="bg-[hsl(var(--light-blue-section))] py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section 
+      className="bg-[hsl(var(--light-blue-section))] py-20 relative"
+      style={backgroundImage ? {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      } : {}}
+    >
+      {backgroundImage && (
+        <div className="absolute inset-0 bg-[hsl(var(--light-blue-section))] opacity-90"></div>
+      )}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-[hsl(var(--brand-navy))] mb-6">
           {title}
         </h1>

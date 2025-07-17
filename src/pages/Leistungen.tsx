@@ -285,6 +285,7 @@ const Leistungen = () => {
       <PageHeader 
         title="Unsere Leistungen"
         subtitle="Modulare Dienstleistungspakete für Schweizer KMU."
+        backgroundImage="/lovable-uploads/1364d0bd-4fdf-4872-9fef-1ca23c32d14c.png"
       />
 
       {/* Services Grid */}
