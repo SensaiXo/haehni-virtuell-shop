@@ -94,31 +94,6 @@ const FAQ = () => {
       answer: t('faq.a10'),
       icon: HelpCircle
     },
-    {
-      question: t('faq.q11'),
-      answer: t('faq.a11'),
-      icon: Calculator
-    },
-    {
-      question: t('faq.q12'),
-      answer: t('faq.a12'),
-      icon: Users
-    },
-    {
-      question: t('faq.q13'),
-      answer: t('faq.a13'),
-      icon: FileText
-    },
-    {
-      question: t('faq.q14'),
-      answer: t('faq.a14'),
-      icon: Shield
-    },
-    {
-      question: t('faq.q15'),
-      answer: t('faq.a15'),
-      icon: HelpCircle
-    }
   ];
 
   return (
