@@ -394,7 +394,7 @@ const Leistungen = () => {
                     onClick={() => toggleRowExpansion(index)}
                     className="w-full bg-[hsl(var(--button-primary-bg))] text-[hsl(var(--brand-white))] border-2 border-[hsl(var(--button-primary-border))] px-6 py-3 rounded-lg font-semibold text-lg hover:bg-[hsl(var(--button-primary-bg))]/90 hover:border-[hsl(var(--button-primary-border))]/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                   >
-                    Pakete & Preise
+                    Preise & Pakete ansehen
                     <div className={`transform transition-transform duration-200 ${
                       expandedRows.has(getRowIndex(index)) ? 'rotate-180' : ''
                     }`}>
