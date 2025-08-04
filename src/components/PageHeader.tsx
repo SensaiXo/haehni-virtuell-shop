@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { imagePreloader } from '@/utils/imagePreloader';
 
 interface PageHeaderProps {
   title: string;
@@ -18,9 +19,18 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   
   useEffect(() => {
     if (backgroundImage) {
-      const img = new Image();
-      img.onload = () => setImageLoaded(true);
-      img.src = backgroundImage;
+      // Check if image is already preloaded
+      if (imagePreloader.isImageLoaded(backgroundImage)) {
+        setImageLoaded(true);
+      } else {
+        // Load the image if not preloaded
+        imagePreloader.preloadImage(backgroundImage)
+          .then(() => setImageLoaded(true))
+          .catch(() => {
+            console.warn(`Failed to load background image: ${backgroundImage}`);
+            setImageLoaded(true); // Show fallback
+          });
+      }
     }
   }, [backgroundImage]);
 
@@ -34,7 +44,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       } : {}}
     >
       {backgroundImage && !imageLoaded && (
-        <Skeleton className="absolute inset-0 bg-[hsl(var(--light-blue-section))]" />
+        <div className="absolute inset-0">
+          <Skeleton className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--light-blue-section))] to-blue-100" />
+          <div className="absolute inset-0 bg-[hsl(var(--light-blue-section))] opacity-80 animate-pulse" />
+        </div>
       )}
       {backgroundImage && imageLoaded && (
         <div className="absolute inset-0 bg-[hsl(var(--light-blue-section))] opacity-90"></div>
