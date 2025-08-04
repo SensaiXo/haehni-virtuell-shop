@@ -392,9 +392,9 @@ const Leistungen = () => {
                 <div className="border-t border-gray-200 pt-6">
                   <button
                     onClick={() => toggleRowExpansion(index)}
-                    className="w-full text-lg font-semibold text-navy justify-center flex items-center gap-2 hover:text-blue-700 transition-all duration-300 hover:scale-105 animate-pulse hover:animate-none"
+                    className="w-full bg-[hsl(var(--button-primary-bg))] text-[hsl(var(--brand-white))] border-2 border-[hsl(var(--button-primary-border))] px-6 py-3 rounded-lg font-semibold text-lg hover:bg-[hsl(var(--button-primary-bg))]/90 hover:border-[hsl(var(--button-primary-border))]/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                   >
-                    View Pricing & Packages
+                    Pakete & Preise
                     <div className={`transform transition-transform duration-200 ${
                       expandedRows.has(getRowIndex(index)) ? 'rotate-180' : ''
                     }`}>
