@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Award, Clock, Heart } from 'lucide-react';
+import { ArrowRight, Zap, Award, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 const HeroSection = () => {
@@ -135,20 +135,19 @@ const HeroSection = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 "Grüezi, ich bin Laura Hähni...<br className="hidden sm:block" />
-                <span className="block mt-2">Seit einigen Jahren bin ich als virtuelle Assistentin selbstständig und unterstütze Unternehmen dabei, ihre Buchhaltung und administrativen Aufgaben effizient zu meistern. Zusammen mit Clark, unserem talentierten Website-Entwickler aus dem UK, bieten wir Ihnen die perfekte Kombination aus virtueller Assistenz und digitalen Lösungen.</span>
+                <span className="block mt-2">Seit einigen Jahren bin ich als virtuelle Assistentin selbstständig und unterstütze Unternehmen dabei, ihre Buchhaltung und administrativen Aufgaben effizient zu meistern. Vor meiner Selbstständigkeit konnte ich in verschiedenen Funktionen wertvolle Erfahrungen sammeln, die ich heute gezielt einsetze.</span>
               </motion.p>
 
-              {/* Couple Portrait */}
+              {/* Portrait */}
               <motion.div 
-                className="flex justify-center mb-8 relative"
+                className="flex justify-center mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <div className="relative flex items-center gap-8">
-                  {/* Laura's Portrait */}
+                <div className="relative">
                   <motion.div 
-                    className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl ring-8 ring-[hsl(var(--brand-white))] bg-gradient-to-br from-[hsl(var(--brand-navy))]/5 to-[hsl(var(--brand-blue))]/5 relative z-10"
+                    className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl ring-8 ring-[hsl(var(--brand-white))] bg-gradient-to-br from-[hsl(var(--brand-navy))]/5 to-[hsl(var(--brand-blue))]/5"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -159,97 +158,18 @@ const HeroSection = () => {
                       src="/lovable-uploads/bcba4a70-2042-41ab-b00e-dbebaf65b148.png" 
                     />
                   </motion.div>
-
-                  {/* Floating Hearts Animation */}
+                  {/* Subtle floating accent */}
                   <motion.div 
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
-                    animate={{ 
-                      rotate: [0, 360],
-                      scale: [1, 1.2, 1]
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity, 
-                      ease: "easeInOut" 
-                    }}
-                  >
-                    <Heart className="w-8 h-8 text-red-500 fill-red-500" />
-                  </motion.div>
-
-                  {/* Additional floating hearts */}
-                  <motion.div 
-                    className="absolute top-8 left-1/2 transform -translate-x-1/2 z-15"
-                    animate={{ 
-                      y: [0, -20, 0],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity, 
-                      ease: "easeInOut",
-                      delay: 1
-                    }}
-                  >
-                    <Heart className="w-6 h-6 text-pink-400 fill-pink-400" />
-                  </motion.div>
-
-                  <motion.div 
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-15"
-                    animate={{ 
-                      y: [0, 20, 0],
-                      opacity: [0.7, 1, 0.7]
-                    }}
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity, 
-                      ease: "easeInOut",
-                      delay: 2
-                    }}
-                  >
-                    <Heart className="w-5 h-5 text-red-400 fill-red-400" />
-                  </motion.div>
-
-                  {/* Clark's Portrait */}
-                  <motion.div 
-                    className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl ring-8 ring-[hsl(var(--brand-white))] bg-gradient-to-br from-[hsl(var(--brand-navy))]/5 to-[hsl(var(--brand-blue))]/5 relative z-10"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img 
-                      alt="Clark – Website Developer from UK" 
-                      className="w-full h-full object-cover object-center" 
-                      loading="lazy" 
-                      src="/lovable-uploads/7ec14da2-55de-492d-ac88-28b2e42f814e.png" 
-                    />
-                  </motion.div>
-
-                  {/* Romantic glow effects */}
-                  <motion.div 
-                    className="absolute -bottom-4 -right-4 w-16 h-16 bg-red-300/20 rounded-full blur-xl"
+                    className="absolute -bottom-4 -right-4 w-16 h-16 bg-[hsl(var(--brand-navy))]/10 rounded-full blur-xl"
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   />
                   <motion.div 
-                    className="absolute -top-4 -left-4 w-12 h-12 bg-pink-300/20 rounded-full blur-lg"
+                    className="absolute -top-4 -left-4 w-12 h-12 bg-[hsl(var(--brand-blue))]/10 rounded-full blur-lg"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   />
                 </div>
-              </motion.div>
-              
-              {/* Names */}
-              <motion.div 
-                className="text-center mb-6"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-              >
-                <p className="text-lg font-semibold text-black/80">
-                  Laura Hähni <Heart className="inline w-5 h-5 text-red-500 fill-red-500 mx-2" /> Clark
-                </p>
-                <p className="text-sm text-black/60">
-                  Virtuelle Assistentin & Website Developer
-                </p>
               </motion.div>
               
               {/* Microcopy */}
@@ -259,7 +179,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
-                Gemeinsam bieten wir Ihnen präzise Arbeit, schnelle Ergebnisse und faire Konditionen – damit Sie sich voll und ganz auf Ihr Business konzentrieren können. Wir freuen uns darauf, Sie kennenzulernen und Ihnen den Alltag zu erleichtern!
+                Mein Anspruch? Präzise Arbeit, schnelle Ergebnisse und faire Konditionen – damit Sie sich voll und ganz auf Ihr Business konzentrieren können. Ich freue mich darauf, Sie kennenzulernen und Ihnen den Alltag zu erleichtern!
               </motion.div>
             </div>
           </motion.div>
