@@ -80,8 +80,22 @@ const Kontakt = () => {
                     <MapPin className="w-4 h-4 text-muted-foreground" />
                     <div>
                       <p className="font-medium">{t('contact.info.location')}</p>
-                      <p className="text-muted-foreground">{t('contact.info.location.value')}</p>
+                      <p className="text-muted-foreground">Langwiesstrasse 30, 8500 Frauenfeld</p>
                     </div>
+                  </div>
+                  
+                  {/* Google Maps Embed */}
+                  <div className="mt-6">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2692.631712820536!2d8.90792767681117!3d47.55549619150441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a923dfe98b683%3A0x87847939a19813d2!2sLangwiesstrasse%2030%2C%208500%20Frauenfeld%2C%20Switzerland!5e0!3m2!1sen!2suk!4v1754339519436!5m2!1sen!2suk" 
+                      width="100%" 
+                      height="300" 
+                      style={{border: 0}} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="rounded-lg"
+                    />
                   </div>
                 </CardContent>
               </Card>
