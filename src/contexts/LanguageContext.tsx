@@ -12,6 +12,7 @@ const translations = {
   de: {
     // Navigation
     'nav.home': 'Startseite',
+    'nav.services': 'Leistungen',
     'nav.services_packages': 'Leistungen & Pakete',
     'nav.services_overview': 'Leistungsübersicht',
     'nav.pricing_packages': 'Preis-Pakete',
