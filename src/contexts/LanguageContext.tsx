@@ -298,6 +298,7 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
+    'nav.services': 'Services',
     'nav.services_packages': 'Services & Packages',
     'nav.services_overview': 'Services Overview',
     'nav.pricing_packages': 'Pricing Packages',
