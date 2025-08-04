@@ -392,9 +392,9 @@ const Leistungen = () => {
                 <div className="border-t border-gray-200 pt-6">
                   <button
                     onClick={() => toggleRowExpansion(index)}
-                    className="w-full text-lg font-semibold text-navy justify-center flex items-center gap-2 hover:text-blue-700 transition-colors"
+                    className="w-full text-lg font-semibold text-navy justify-center flex items-center gap-2 hover:text-blue-700 transition-all duration-300 hover:scale-105 animate-pulse hover:animate-none"
                   >
-                    Pakete & Preise
+                    View Pricing & Packages
                     <div className={`transform transition-transform duration-200 ${
                       expandedRows.has(getRowIndex(index)) ? 'rotate-180' : ''
                     }`}>
