@@ -78,5 +78,6 @@ const OnlineBuchung = () => {
       </section>
     </Layout>
   );
+};
 
 export default OnlineBuchung;
