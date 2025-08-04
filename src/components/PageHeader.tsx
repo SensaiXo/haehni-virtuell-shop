@@ -7,13 +7,15 @@ interface PageHeaderProps {
   subtitle?: string;
   showTrustBadges?: boolean;
   backgroundImage?: string;
+  backgroundPosition?: string;
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ 
   title, 
   subtitle, 
   showTrustBadges = true,
-  backgroundImage 
+  backgroundImage,
+  backgroundPosition = 'center'
 }) => {
   const [imageLoaded, setImageLoaded] = useState(!backgroundImage);
   
@@ -40,7 +42,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       style={backgroundImage && imageLoaded ? {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: backgroundPosition,
       } : {}}
     >
       {backgroundImage && !imageLoaded && (

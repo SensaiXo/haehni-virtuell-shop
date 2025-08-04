@@ -309,6 +309,7 @@ const Leistungen = () => {
         title="Unsere Leistungen"
         subtitle="Modulare Dienstleistungspakete für Schweizer KMU."
         backgroundImage="/lovable-uploads/7df6ba86-a38f-48f6-a022-6a56ea8eb903.png"
+        backgroundPosition="center bottom"
       />
 
       {/* Benefits Section */}
