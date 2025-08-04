@@ -29,8 +29,6 @@ const Navigation = () => {
       path: null,
       dropdown: [
         { name: t('nav.services_overview'), path: '/leistungen' },
-        { name: t('nav.pricing_packages'), path: '/products' },
-        { name: t('nav.book_now'), path: '/buchung' },
       ]
     },
     { name: t('nav.about_us'), path: '/ueber-uns' },
@@ -118,9 +116,9 @@ const Navigation = () => {
             <Mail className="w-6 h-6 text-navy cursor-pointer hover:text-navy/70 transition-colors" onClick={() => window.location.href = '/kontakt'} />
             <LanguageToggle />
             <Button asChild className="bg-navy hover:bg-navy/80 text-white text-base font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
-              <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer">
+              <Link to="/buchung">
                 {t('cta.booking')}
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -197,9 +195,9 @@ const Navigation = () => {
                   <LanguageToggle />
                 </div>
                 <Button asChild className="w-full bg-navy hover:bg-navy/80 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg">
-                  <a href="https://calendly.com/swissfinanceai/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  <Link to="/buchung" onClick={() => setIsOpen(false)}>
                     {t('cta.booking')}
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
