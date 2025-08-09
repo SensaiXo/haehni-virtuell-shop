@@ -47,10 +47,10 @@ const UeberUns = () => {
           <div className="mb-16">
             <Card className="p-8">
               <div className="text-center mb-8">
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6">
+                <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
                   <img 
-                    src="/lovable-uploads/e753479d-a5a2-4126-866b-ce85a09912a3.png"
-                    alt="Laura Hähni"
+                    src="/lovable-uploads/3108e62c-f0d0-44d0-b0d8-1c11acaca09f.png"
+                    alt="Laura Hähni portrait - About Me"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -63,6 +63,23 @@ const UeberUns = () => {
                   Vielen Dank für Ihr Interesse an meiner Person und meiner Firma. Nachfolgend finden Sie 
                   einige Informationen zu meinen Berufserfahrungen und meiner Selbständigkeit mit 
                   Bürodienstleistungen Hähni.
+                </p>
+
+                <h2 id="about-me" className="text-3xl font-bold text-gray-900 mt-10 mb-4">About Me</h2>
+                <p className="mb-4">
+                  I’m Laura Hähni, a Swiss-based administrative specialist helping founders and SMEs keep their back office lean, compliant and stress‑free. 
+                  With hands-on experience across accounting, HR and operations, I bring structure, clarity and momentum to your daily business.
+                </p>
+                <p className="mb-4">
+                  My philosophy is simple: reliable execution, clear communication, and discreet support in the background so you can focus on growth.
+                </p>
+                <ul className="list-disc list-inside space-y-1 mb-4">
+                  <li>Strengths: organization, process optimization, and pragmatic problem solving</li>
+                  <li>Values: reliability, discretion, and long‑term partnership</li>
+                  <li>Focus: Swiss SMEs, trades, and service companies</li>
+                </ul>
+                <p className="mb-0">
+                  If you’d like to know how I can support you specifically, feel free to book a short intro call—no obligations, just clarity.
                 </p>
               </div>
             </Card>
