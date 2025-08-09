@@ -49,7 +49,7 @@ const UeberUns = () => {
               <div className="text-center mb-8">
                 <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6">
                   <img 
-                    src="/lovable-uploads/3108e62c-f0d0-44d0-b0d8-1c11acaca09f.png"
+                    src="/lovable-uploads/bcba4a70-2042-41ab-b00e-dbebaf65b148.png"
                     alt="Laura Hähni portrait - About Me"
                     className="w-full h-full object-cover"
                   />
